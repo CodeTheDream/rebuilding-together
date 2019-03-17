@@ -32,5 +32,27 @@ ActiveRecord::Schema.define(version: 2019_03_20_192147) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+end
 
+ActiveRecord::Schema.define(version: 2019_03_15_055139) do
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string "picture"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "mobile_phone"
+    t.date "birthdate"
+    t.string "gender"
+    t.string "city"
+    t.string "state"
+    t.string "employer"
+    t.string "position"
+    t.string "availability"
+    t.string "skill"
+    t.text "volunteer_notes"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end
