@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -54,5 +56,27 @@ ActiveRecord::Schema.define(version: 2019_03_15_055139) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+end
+
+ActiveRecord::Schema.define(version: 20_190_315_055_139) do
+  create_table 'volunteers', force: :cascade do |t|
+    t.string 'picture'
+    t.string 'first_name'
+    t.string 'last_name'
+    t.string 'email'
+    t.string 'mobile_phone'
+    t.date 'birthdate'
+    t.string 'gender'
+    t.string 'city'
+    t.string 'state'
+    t.string 'employer'
+    t.string 'position'
+    t.string 'availability'
+    t.string 'skill'
+    t.text 'volunteer_notes'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 end
