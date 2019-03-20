@@ -14,6 +14,7 @@ class VolunteersController < ApplicationController
   end
 
   def create
+    
     # @user = current_user
     # @repair = Repair.all
     @volunteer = Volunteer.new
