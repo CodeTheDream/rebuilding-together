@@ -1,0 +1,9 @@
+| <%= link_to "New Repair", new_repair_path(@repairs) %> |
+<% @repairs.each do |repair| %>
+    <div>
+    <%= repair.repair_type %>
+    </div>
+    <%= repair.repair_notes %><br/>
+    <%= link_to "Edit", edit_repair_path(repair) %>
+    <%= link_to "Delete",repair_path(repair), method: :delete%>
+<% end %>
