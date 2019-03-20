@@ -1,35 +1,40 @@
 class RepairsController < ApplicationController
+    
     def index
-        @repair = Repair.all 
+        @repairs = Repair.all 
     end
+    
     def new
-        @repair = Repair.new
-        
+        @repairs = Repair.new
     end
+    
     def create 
-        @repair = Repair.new(repair_params)
-        @repair.save
+        @repairs = Repair.new(repair_params)
+        @repairs.save
         redirect_to repairs_path
     end
+    
     def edit
-        @repair = Repair.find(params[:id])
+        @repairs = Repair.find(params[:id])
     end
+    
     def update
-         @repair = Repair.find(params[:id])
-         @repair.update_attributes(repair_params)
-        @repair.save
+         @repairs = Repair.find(params[:id])
+         @repairs.update_attributes(repair_params)
+        @repairs.save
         redirect_to repairs_path
     end
+    
     def destroy
-         @repair = Repair.find(params[:id])
-         @repair.destroy
+         @repairs = Repair.find(params[:id])
+         @repairs.destroy
          redirect_to repairs_path
      end
     
 end
 
+private
+
 def repair_params
     params.require(:repair).permit(:repair_type, :repair_notes)
 end
-
-
