@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class VolunteersController < ApplicationController
+    
+before_action :authenticate_user!
+
   def index
     # want this to show the volunteers profile information
     @volunteer = Volunteer.all
@@ -14,7 +17,6 @@ class VolunteersController < ApplicationController
   end
 
   def create
-    
     # @user = current_user
     # @repair = Repair.all
     @volunteer = Volunteer.new
@@ -45,7 +47,7 @@ class VolunteersController < ApplicationController
   def update
     # @user = current_user
     # @repair = Repair.all
-    volunteer = Volunteer.new
+    volunteer = Volunteer.find(params[:id])
     volunteer.picture = params[:volunteer][:picture]
     volunteer.first_name = params[:volunteer][:first_name]
     volunteer.last_name = params[:volunteer][:last_name]
