@@ -2,6 +2,7 @@
 
 # rails controller for repairs
 class RepairsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @repairs = Repair.all
   end
@@ -18,6 +19,7 @@ class RepairsController < ApplicationController
 
   def edit
     @repairs = Repair.find(params[:id])
+    
   end
 
   def update
