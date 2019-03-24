@@ -15,7 +15,7 @@
         <h5>Location:</h5> <p><%= volunteer.city %>, <%= volunteer.state %> </h5>
     </div>
     <div>
-        <h4>Personal Information</h4>
+        <h4>Volunteer's Personal Information</h4>
     </div>
     <div>
         <h5>Birthdate:</h5> <p><%= volunteer.birthdate %></p>
@@ -30,7 +30,8 @@
         <p><%= volunteer.volunteer_notes %></p>
     </div>
 </div>
-   <div>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-    </div>
+
 <% end %>
+<div>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+</div>
