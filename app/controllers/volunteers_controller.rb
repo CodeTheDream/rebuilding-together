@@ -24,28 +24,11 @@ before_action :authenticate_user!
   
   def create
     # @repair = Repair.all
-    # @volunteer.picture = params[:volunteer][:picture]
-    # @volunteer.first_name = params[:volunteer][:first_name]
-    # @volunteer.last_name = params[:volunteer][:last_name]
-    # @volunteer.email = params[:volunteer][:email]
-    # @volunteer.mobile_phone = params[:volunteer][:mobile_phone]
-    # @volunteer.birthdate = params[:volunteer][:birthdate]
-    # @volunteer.gender = params[:volunteer][:gender]
-    # @volunteer.city = params[:volunteer][:city]
-    # @volunteer.state = params[:volunteer][:state]
-    # @volunteer.employer = params[:volunteer][:employer]
-    # @volunteer.position = params[:volunteer][:position]
-    # @volunteer.availability = params[:volunteer][:availability]
-    # @volunteer.skill = params[:volunteer][:skill]
-    # @volunteer.volunteer_notes = params[:volunteer][:volunteer_notes]
-    # # @volunteer.user_id = current_user.id
-    #   @volunteer.save
-    # redirect_to volunteer_path
     @volunteer = Volunteer.new(volunteer_params)
-    # @volunteer.save
-    # @volunteer.creat!(volunteer_params)
+    @volunteer.user_id = current_user.id
+    @volunteer.save
     if @volunteer.save
-          redirect_to volunteer
+          redirect_to @volunteer
     else
       render 'new'
     end
@@ -57,33 +40,10 @@ before_action :authenticate_user!
   end
 
   def update
-    # @repair = Repair.all
-    # volunteer = Volunteer.find(params[:id])
-    # volunteer.picture = params[:volunteer][:picture]
-    # volunteer.first_name = params[:volunteer][:first_name]
-    # volunteer.last_name = params[:volunteer][:last_name]
-    # volunteer.email = params[:volunteer][:email]
-    # volunteer.mobile_phone = params[:volunteer][:mobile_phone]
-    # volunteer.birthdate = params[:volunteer][:birthdate]
-    # volunteer.gender = params[:volunteer][:gender]
-    # volunteer.city = params[:volunteer][:city]
-    # volunteer.state = params[:volunteer][:state]
-    # volunteer.employer = params[:volunteer][:employer]
-    # volunteer.position = params[:volunteer][:position]
-    # volunteer.availability = params[:volunteer][:availability]
-    # volunteer.skill = params[:volunteer][:skill]
-    # volunteer.volunteer_notes = params[:volunteer][:volunteer_notes]
-    # volunteer.user_id = current_user.id
-    # volunteer.save
-    # redirect_to volunteer_path
-      
       volunteer = Volunteer.find(params[:id])
       volunteer.update!(volunteer_params)
+      volunteer.user_id = current_user.id  #put this seperate because doesn't seem to work included as strong params
       redirect_to volunteer
-# person = current_account.people.find(params[:id])
-#     person.update!(person_params)
-#     redirect_to person
-
   end
 
   # def (action to view projects)
@@ -106,6 +66,6 @@ private
     def volunteer_params
       params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
       :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-      :availability, :skill, :volunteer_notes, :user_id)
+      :availability, :skill, :volunteer_notes)
     end
 end
