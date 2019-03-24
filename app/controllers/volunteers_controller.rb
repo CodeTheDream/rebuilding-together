@@ -5,19 +5,24 @@ class VolunteersController < ApplicationController
 before_action :authenticate_user!
 
   def index
-    # want this to show the volunteers profile information
+    # set permission that only the administrator can see the index
+    # also set up function/action either here or in devise that when the user
+        # first sign up for login credentials they're redirected to a creat your
+        # profile page. 
+  # @repair = Repair.all
     @volunteer = Volunteer.all
-    # @user = current_user
-    # @repair = Repair.all
   end
 
   def new
+  # @repair = Repair.all
     @volunteer = Volunteer.new
-    # @repair = Repair.all
+  end
+  
+  def show
+    @volunteer = current_user.volunteer
   end
 
   def create
-    # @user = current_user
     # @repair = Repair.all
     @volunteer = Volunteer.new
     @volunteer.picture = params[:volunteer][:picture]
@@ -32,20 +37,19 @@ before_action :authenticate_user!
     @volunteer.employer = params[:volunteer][:employer]
     @volunteer.position = params[:volunteer][:position]
     @volunteer.availability = params[:volunteer][:availability]
-    # @volunteer.repair_id = params[:repair_id]
+    @volunteer.skill = params[:volunteer][:skill]
     @volunteer.volunteer_notes = params[:volunteer][:volunteer_notes]
+    @volunteer.user_id = current_user.id
     @volunteer.save
-    redirect_to volunteers_path
+    redirect_to volunteer_path(@volunteer)
   end
 
   def edit
-    # @user = current_user
     # @repair = Repair.all
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find(current_user.id)
   end
 
   def update
-    # @user = current_user
     # @repair = Repair.all
     volunteer = Volunteer.find(params[:id])
     volunteer.picture = params[:volunteer][:picture]
@@ -60,17 +64,18 @@ before_action :authenticate_user!
     volunteer.employer = params[:volunteer][:employer]
     volunteer.position = params[:volunteer][:position]
     volunteer.availability = params[:volunteer][:availability]
-    # @volunteer.repair_id = params[:repair_id]
+    volunteer.skill = params[:volunteer][:skill]
     volunteer.volunteer_notes = params[:volunteer][:volunteer_notes]
+    volunteer.user_id = current_user.id
     volunteer.save
-    redirect_to volunteers_path
+    redirect_to volunteer_path
   end
 
-  def show
-    # show projects available based on their skills?
-    # show past projects they've completed?
-    # show current projects and profiles for their team members?
-  end
+  # def (action to view projects)
+  #   # show projects available based on their skills?
+  #   # show past projects they've completed?
+  #   # show current projects and profiles for their team members?
+  # end
 
   def add
     # for volunteer to sign up for a project

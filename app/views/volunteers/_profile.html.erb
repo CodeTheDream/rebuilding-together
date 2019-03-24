@@ -1,0 +1,51 @@
+<div>
+    <div>
+        <h4>My Profile</h4>
+    </div>
+    <div>
+        <img src="<%= @volunteer.picture %>" height=50px>
+        <h5>Name:</h5> <p><%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
+        <h5>Email:</h5> <p><%= @volunteer.email %></p>
+        <h5>Phone:</h5> <p><%= @volunteer.mobile_phone %></p>
+        <h5>Location:</h5> <p><%= @volunteer.city %>, <%= @volunteer.state %> </h5>
+    </div>
+    <div>
+        <h4>Personal Information</h4>
+    </div>
+    <div>
+        <h5>Birthdate:</h5> <p><%= @volunteer.birthdate %></p>
+        <h5>Gender:</h5> <p><%= @volunteer.gender %></p>
+        <h5>Employer:</h5> <p><%= @volunteer.employer %></p>
+        <h5>Position:</h5> <p><%= @volunteer.position %></p>
+    </div>
+    <div>
+        <h5>Availability:</h5> <p><%= @volunteer.availability %></p>
+        <h5>My Skills:</h5><p><%= @volunteer.skill %></p>
+        <h5>Notes regarding my skills and availability:</h5>
+        <p><%= @volunteer.volunteer_notes %></p>
+    </div>
+    <div>
+       <%= link_to 'Edit Profile', edit_volunteer_path(@volunteer) %>
+        <!-- Do we want to add a link to delete a profile? Or ask them to submit a request to delete the profile to the administrator -->
+    </div>
+    <div>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    </div>
+</div>
+
+<!--<div>-->
+    <!--Show upcoming homes needing help, where volunteers can sign up for, based on skills they select. -->
+<!--    <h4>View upcoming jobs below, from homeowners who could use your help!</h4>-->
+    <!--Add link to sign up to volunteer for job.-->
+<!--</div>-->
+
+<!--<div>-->
+<!--    Show jobs the volunteer has already signed up for, place on top right of page beside profile -->
+<!--    <h4>Your Assigned Jobs</h4>-->
+<!--    Add link to remove job, to say they're not longer available. -->
+<!--</div>-->
+<!--<div>-->
+<!--    Show homes the volunteer already completed? -->
+<!--    <h4>Completed Jobs</h4>-->
+<!--    <h5>Thank you for making the following homes safe and accessible to families in our community!</h5>-->
+<!--</div>-->
