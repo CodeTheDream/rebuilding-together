@@ -1,0 +1,8 @@
+<% if @volunteer == nil %>
+    <!--Add more content and styling here...-->
+    <%= link_to 'Create Profile', new_volunteer_path %>
+<% else %>
+    <% volunteer = @volunteer %>
+    <%= render 'profile' %>
+<% end %>
+

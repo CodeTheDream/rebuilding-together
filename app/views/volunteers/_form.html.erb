@@ -1,0 +1,97 @@
+<div>
+    <%= form_for @volunteer do |f| %>
+        <div>
+            <h4>Basic Information</h4>
+        </div>
+            <div>
+                <div>
+                    <h5>Volunteer Photo:</h5><%= f.text_field :picture, placeholder: 'Upload a profile picture.' %>
+                </div>
+                <div>
+                    <h5>First Name:</h5><%= f.text_field :first_name %>
+                </div>
+                <div>
+                    <h5>Last Name:</h5><%= f.text_field :last_name %>
+                </div>
+                <div>
+                    <h5>Email:</h5><%= f.text_field :email %>
+                </div>            
+                <div>
+                    <h5>Phone:</h5><%= f.telephone_field :mobile_phone %>
+                </div>            
+                <div>
+                    <h5>City:</h5><%= f.text_field :city %>
+                </div>            
+                <div>
+                    <h5>State:</h5><%= f.text_field :state %>
+                </div>            
+            </div>
+        <div>
+            <h4>Personal Information</h4>
+        </div>
+                <div>
+                    <h5>Birthdate:</h5><%= f.date_field :birthdate %>
+                </div>
+                <div>
+                    <h5>Gender:</h5><p>To which gender identity do you most identify with?</p>
+                    <%= f.select(:gender, options_for_select([
+                        ['Female', 'Female'],
+                        ['Male', 'Male'],
+                        ['Other', 'Other'],
+                        ['Prefer Not to Answer', 'Prefer Not to Answer']])) %>
+                </div>
+                <div>
+                    <h5>Employer</h5><%= f.text_field :employer %>
+                </div>
+                <div>
+                    <h5>Position</h5><%= f.text_field :position %>
+                </div>
+                <div>
+                    
+                </div>
+                <div>
+        <div>
+            <h4>Volunteer Interests and Availability</h4>
+        </div>
+                <div>
+                    <h5>Availability. Select all that apply.</h5>
+                        <!-- style to make multiple checkbox options and style into columns -->
+                        <div>
+                            <%= f.radio_button :availability, 'Monday' %>
+                            <%= f.label :availability, 'Monday' %>
+                        </div>            
+                        <div>
+                            <%= f.radio_button :availability, 'Tuesday' %>
+                            <%= f.label :availability, 'Tuesday' %>
+                        </div>
+                        <div>
+                            <%= f.radio_button :availability, 'Wednesday' %>
+                            <%= f.label :availability, 'Wednesday' %>
+                        </div>
+                        <div>
+                            <%= f.radio_button :availability, 'Thursday' %>
+                            <%= f.label :availability, 'Thursday' %>
+                        </div>
+                        <div>
+                            <%= f.radio_button :availability, 'Friday' %>
+                            <%= f.label :availability, 'Friday' %>
+                        </div>  
+                        <div>
+                            <%= f.radio_button :availability, 'Saturday' %>
+                            <%= f.label :availability, 'Saturday' %>
+                        </div>  
+                </div>
+                <div>
+                        <!-- Add optionfor volunteer to select from repairs, drop box -->
+                        <!--< select_tag 'repair_id', options_from_collection_for_select(@repair, :id, :type) %>-->
+                        <h5>Skill & Interests</h5><%= f.text_field :skill %>
+                </div>
+                <div>
+                    <h5>Notes regarding my skills and availability:</h5>
+                    <%= f.text_area :volunteer_notes, cols: 100, rows: 3 %>
+                </div>
+                <div>
+                    <%= f.submit "Save" %>
+                </div>
+    <% end %>
+</div>
