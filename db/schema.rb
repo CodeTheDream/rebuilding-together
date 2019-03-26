@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_144021) do
+ActiveRecord::Schema.define(version: 2019_03_26_134238) do
+
+  create_table "owners", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
+    t.string "year"
+    t.string "email"
+    t.string "phone"
+    t.string "em_contact_name"
+    t.string "em_contact_phone"
+    t.string "em_contact_relationship"
+    t.string "language"
+    t.string "howd_you_hear"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_owners_on_user_id", unique: true
+  end
 
   create_table "repairs", force: :cascade do |t|
     t.string "repair_type"
