@@ -10,4 +10,5 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
+  has_one :volunteer
 end

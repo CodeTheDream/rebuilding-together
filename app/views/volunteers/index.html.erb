@@ -1,0 +1,37 @@
+<!--Include links to view volunteers, view homes, search or sort volunteers/homes-->
+<div>
+    <h1>Volunteers</h1>
+    <h2>Welcome Rebuilding Together of the Triangle Staff!</h2>
+    <h3>Below is a list of your volunteers.</h3>
+</div>
+
+<% @volunteer.each do |volunteer| %>
+<div>
+    <div>
+        <img src="<%= volunteer.picture %>" height=50px>
+        <h5>Name:</h5> <p><%= volunteer.first_name %> <%= volunteer.last_name %></p>
+        <h5>Email:</h5> <p><%= volunteer.email %></p>
+        <h5>Phone:</h5> <p><%= volunteer.mobile_phone %></p>
+        <h5>Location:</h5> <p><%= volunteer.city %>, <%= volunteer.state %> </h5>
+    </div>
+    <div>
+        <h4>Volunteer's Personal Information</h4>
+    </div>
+    <div>
+        <h5>Birthdate:</h5> <p><%= volunteer.birthdate %></p>
+        <h5>Gender:</h5> <p><%= volunteer.gender %></p>
+        <h5>Employer:</h5> <p><%= volunteer.employer %></p>
+        <h5>Position:</h5> <p><%= volunteer.position %></p>
+    </div>
+    <div>
+        <h5>Availability:</h5> <p><%= volunteer.availability %></p>
+        <h5>Volunteer's Skills:</h5><p><%= volunteer.skill %></p>
+        <h5>Notes regarding volunteer's skills and availability:</h5>
+        <p><%= volunteer.volunteer_notes %></p>
+    </div>
+</div>
+
+<% end %>
+<div>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+</div>
