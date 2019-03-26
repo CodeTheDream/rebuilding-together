@@ -1,7 +1,7 @@
 class CreateOwners < ActiveRecord::Migration[5.2]
   def change
     create_table :owners do |t|
-      t.references :user, foreign_key: true
+      t.references :user, index: { unique: true }, foreign_key: true
       t.string :first_name
       t.string :middle_name
       t.string :last_name
