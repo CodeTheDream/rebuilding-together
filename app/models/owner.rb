@@ -9,12 +9,8 @@ class Owner < ApplicationRecord
     [first_name, middle_name, last_name].compact.join(' ')
   end
 
-  def full_address
-    partial_address = [address, city, state].compact.join(', ')
-    [partial_address, zip].compact.join(' ')
+  def short_address
+    [city, state].compact.join(', ') unless city.blank? && state.blank?
   end
 
-  def short_address
-    [city, state].compact.join(', ')
-  end
 end

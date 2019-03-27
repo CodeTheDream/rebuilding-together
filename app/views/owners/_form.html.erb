@@ -1,0 +1,34 @@
+<%= form_for(@owner) do |f| %>
+  <%= f.label  :full_name %><br>
+  <%= f.text_field :first_name, placeholder: "First name..." %>
+  <!-- < f.label  :middle_name %> -->
+  <%= f.text_field :middle_name, placeholder: "Middle name..." %>
+  <!-- < f.label  :last_name %> -->
+  <%= f.text_field :last_name, placeholder: "Last name..." %><br>
+  <%= f.label  :address %><br>
+  <%= f.text_field :address, placeholder: "Street name/number..."%>
+  <!-- < f.label  :city %> -->
+  <%= f.text_field :city, placeholder: "City..."%>
+  <!-- < f.label  :state %> -->
+  <%= f.text_field :state, placeholder: "State..." %>
+  <!-- < f.label  :zip %> -->
+  <%= f.text_field :zip, placeholder: "Zipcode..."%><br>
+  <%= f.label  :year %>
+  <%= f.text_field :year, class: "form-control" %>
+  <%= f.label  :email %>
+  <%= f.text_field :email, class: "form-control" %>
+  <%= f.label  :phone %>
+  <%= f.text_field :phone, class: "form-control" %>
+  <%= f.label  :em_contact_name %>
+  <%= f.text_field :em_contact_name, class: "form-control" %>
+  <%= f.label  :em_contact_phone %>
+  <%= f.text_field :em_contact_phone, class: "form-control" %>
+  <%= f.label  :em_contact_relationship %>
+  <%= f.text_field :em_contact_relationship, class: "form-control" %>
+  <%= f.label  :language %>
+  <%= f.text_field :language, class: "form-control" %>
+  <%= f.label  :howd_you_hear %>
+  <%= f.text_field :howd_you_hear, class: "form-control" %><br>
+  <%= f.submit "Create Owner", class: "btn btn-primary form-control" %>
+
+<% end %>

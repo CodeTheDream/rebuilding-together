@@ -1,6 +1,12 @@
 <h1>The Owner List</h1>
 <ul>
  <% @owners.each do |owner| %>
-   <li><%= link_to owner.full_name %>  <%= owner.full_address %></li>
+   <li><%= link_to owner.full_name, owner %> <%= owner.short_address %></li>
  <% end %>
 </ul>
+
+
+<% if user_signed_in? %>
+  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  <%= current_user.email %> | <%= current_user.role %>
+<% end %>
