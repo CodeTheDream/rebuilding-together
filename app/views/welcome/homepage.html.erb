@@ -1,3 +1,30 @@
-<div class="container-fluid">
-  <%= image_tag("https://nodawaynews.com/wp-content/uploads/2018/07/volunteer_final.png", {:style => "width:55em;"}) %>
+  <div class="container-fluid">
+    <%= image_tag("https://nodawaynews.com/wp-content/uploads/2018/07/volunteer_final.png", {:style => "width:55em;"},) %>
+  </div>
+
+<div class="card-deck">
+  <div class="card">
+  <%= image_tag("https://static1.squarespace.com/static/5912015815d5db225b4ee4d7/t/5a6a2eb453450adbf04e8057/1494359275681/?format=1000w", {:style => "width:25em;"}) %>
+
+    <div class="card-body">
+      <h5 class="card-title">Volunteer</h5>
+      <p class="card-text">Are you a maintiance person, a skilled volunteer, or just someone with a welling heart. Please apply as a volunteer and become not just a part of the team, but also part of the family.</p>
+      <%= link_to "Become a Volunteer", volunteers_path %>
+    </div>
+  </div>
+  <div class="card">
+  <%= image_tag("https://static1.squarespace.com/static/5912015815d5db225b4ee4d7/597ccc80f7e0ab110da8b3fd/597cd007e3df287cef6062c6/1504531087152/photo-by-jesse-orrico-62699.jpg?format=750w", {:style => "width:25em;"}) %>
+    <div class="card-body">
+      <h5 class="card-title">Team Member</h5>
+      <p class="card-text">Learn more about us, how you can help and how you can become part of our team. </p><br/><br/>
+            <%= link_to "Team Player", volunteers_path %>
+    </div>
+  </div>
+  <div class="card">
+  <%= image_tag("https://static1.squarespace.com/static/5912015815d5db225b4ee4d7/597ccc80f7e0ab110da8b3fd/59a1a813e4fcb5244a7d3d01/1504530410811/story-fully-human.jpg?format=750w", {:style => "width:25em;"}) %>
+    <div class="card-body">
+      <h5 class="card-title">Home Owner</h5>
+      <p class="card-text">Are you a low-income home owner who needs need assistings with repairs? You have come to the right place. Apply as a home own and lets see how we can help.</p>
+     <%= link_to "Home Owner", root_path %>
+  </div>
 </div>
