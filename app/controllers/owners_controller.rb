@@ -2,7 +2,7 @@ class OwnersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @owners = Owner.order("created_at DESC")
+    @owners = Owner.order(created_at: :desc)
   end
 
   def new

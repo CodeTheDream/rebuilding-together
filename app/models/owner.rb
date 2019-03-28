@@ -1,4 +1,5 @@
 class Owner < ApplicationRecord
+  before_save :upcase_fields
   belongs_to :user
   has_many   :repairs
 
