@@ -6,15 +6,15 @@ class OwnersController < ApplicationController
   end
 
   def new
-    @user  = User.new
-    @owner = @user.build_owner
+    if current_user.owner == nil
+      @owner = current_user.build_owner
+    else
+      redirect_to owner_path(current_user.owner)
+    end
   end
 
   def create
-      @user  = User.new
-      @owner = @user.build_owner(owner_params)
-      # @owner.user_id = current_user.id
-
+      @owner = current_user.build_owner(owner_params)
       if @owner.save
         flash[:notice] = "Owner created"
         redirect_to @owner
@@ -24,8 +24,8 @@ class OwnersController < ApplicationController
   end
 
   def show
-    # @owner = current_user.owner
-    @owner = Owner.find(params[:id])
+    @owner = current_user.owner
+    # @owner = Owner.find(params[:id])
   end
 
 

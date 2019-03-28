@@ -13,21 +13,21 @@
   <%= f.text_field :state, placeholder: "State..." %>
   <!-- < f.label  :zip %> -->
   <%= f.text_field :zip, placeholder: "Zipcode..."%><br>
-  <%= f.label  :year %>
+  <%= f.label  :years_lived_at_home %>
   <%= f.text_field :year, class: "form-control" %>
   <%= f.label  :email %>
   <%= f.text_field :email, class: "form-control" %>
   <%= f.label  :phone %>
   <%= f.text_field :phone, class: "form-control" %>
-  <%= f.label  :em_contact_name %>
-  <%= f.text_field :em_contact_name, class: "form-control" %>
-  <%= f.label  :em_contact_phone %>
-  <%= f.text_field :em_contact_phone, class: "form-control" %>
-  <%= f.label  :em_contact_relationship %>
-  <%= f.text_field :em_contact_relationship, class: "form-control" %>
+  <%= f.label  :Emergency_contact %><br>
+  <%= f.text_field :em_contact_name, placeholder: "Name..." %>
+  <!-- < f.label  :em_contact_phone %> -->
+  <%= f.text_field :em_contact_phone, placeholder: "Phone..." %>
+  <!-- < f.label  :em_contact_relationship %> -->
+  <%= f.text_field :em_contact_relationship, placeholder: "Relationship..." %><br>
   <%= f.label  :language %>
   <%= f.text_field :language, class: "form-control" %>
-  <%= f.label  :howd_you_hear %>
+  <%= f.label  :howd_you_hear? %>
   <%= f.text_field :howd_you_hear, class: "form-control" %><br>
   <%= f.submit "Create Owner", class: "btn btn-primary form-control" %>
 
