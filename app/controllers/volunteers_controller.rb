@@ -16,6 +16,10 @@ before_action :authenticate_user!
   def new
   # @repair = Repair.all
     @volunteer = Volunteer.new
+
+    if current_user.volunteer != nil
+          redirect_to volunteer_path(current_user.volunteer.id)
+    end
   end
   
   def show
@@ -28,6 +32,7 @@ before_action :authenticate_user!
     @volunteer.user_id = current_user.id
     if @volunteer.save
           redirect_to volunteer_path(@volunteer)
+          redirect_to volunteer_path(@volunteer.id)
     else
       render 'new'
     end
@@ -43,6 +48,7 @@ before_action :authenticate_user!
       volunteer.update!(volunteer_params)
       volunteer.user_id = current_user.id  #put this seperate because doesn't seem to work included as strong params
       redirect_to volunteer_path(volunteer)
+      redirect_to volunteer_path(volunteer.id)
   end
 
   # def (action to view projects)
