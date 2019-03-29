@@ -1,0 +1,29 @@
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Rebuilding Together", root_path, class: "navbar-brand" %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Voluntueer", volunteers_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <li><%= link_to "Home Owner", root_path, class: "nav-link" %></li>
+      </li>
+      </div>
+    <div>
+     <ul class="nav navbar-nav navbar-right">
+       <li>
+        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+       </li>
+        <li>
+        <%= link_to "Login",  new_user_session_path, class: "nav-link"  %> <span class="sr-only">(current)</span>
+       </li>
+      </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
