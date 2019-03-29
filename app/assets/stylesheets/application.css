@@ -19,6 +19,6 @@
     color: blue;
 }
 
-.navbar-navmr-auto.nav-item.nav-link li a {
-    color: blue;
+.nav-item .navbar-light .navbar-nav .nav-link { 
+    color: black;
 }
