@@ -27,14 +27,12 @@
     
         <h4>Personal Information</h4>
             <div>
-                <%= f.label :birthdaten, "Birthdate:" %>
-
                 <%= f.label :birthdate, "Birthdate:" %>
-
                 <%= f.date_field :birthdate %>  <br><br>
                 <%= f.label :gender, "Gender: To which gender identity do you most identify with?"%>
             
                 <%= f.select(:gender, options_for_select(['Female', 'Male', 'Other', 'Prefer Not to Answer'])) %> <br><br>
+
                 <%= f.label :employer, "Employer:" %>
                 <%= f.text_field :employer %> <br><br>
                 <%= f.label :position, "Position:"%>
