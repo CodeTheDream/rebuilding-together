@@ -29,6 +29,6 @@
   <%= f.text_field :language, class: "form-control" %>
   <%= f.label  :how_did_you_hear? %>
   <%= f.text_field :howd_you_hear, class: "form-control" %><br>
-  <%= f.submit "Create Owner", class: "btn btn-primary btn-lg" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary btn-lg" %>
 
 <% end %>

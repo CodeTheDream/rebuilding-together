@@ -1,5 +1,6 @@
 class OwnersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_owner, only: [:show, :edit, :update, :destroy]
 
   def index
     @owners = Owner.order(created_at: :desc)
@@ -24,14 +25,35 @@ class OwnersController < ApplicationController
   end
 
   def show
-    @owner = current_user.owner
   end
 
+  def edit
+  end
+
+  def update
+    if @owner.update_attributes(owner_params)
+      flash[:notice] = "Owner updated"
+      redirect_to @owner
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @owner.destroy
+    flash[:success] = "Owner deleted!"
+    redirect_to owners_url
+  end
 
   private
+
     def owner_params
       params.require(:owner).permit(:first_name, :middle_name, :last_name,
         :address, :city, :state, :zip, :country, :year, :email, :phone, :em_contact_name,
         :em_contact_phone, :em_contact_relationship, :language, :howd_you_hear)
+    end
+
+    def set_owner
+      @owner = current_user.owner
     end
 end
