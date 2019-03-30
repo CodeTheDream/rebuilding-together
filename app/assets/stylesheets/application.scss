@@ -13,3 +13,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.nav.navbar-nav.navbar-right li a {
+    color: blue;
+}
+
+.nav-item .navbar-light .navbar-nav .nav-link {
+    color: black;
+}
