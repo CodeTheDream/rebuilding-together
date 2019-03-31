@@ -1,7 +1,11 @@
+<div class='fixed-top'>
+    <%= render 'banner' %>
+    <%= render 'navbar' %>
+</div>
+
 <% if @volunteer == nil %>
     <!--Add more content and styling here...-->
-    <%= link_to 'Create Profile', new_volunteer_path %>
+         <%= link_to 'Create Profile', new_volunteer_path %>
 <% else %>
     <%= render 'profile' %>
 <% end %>
-

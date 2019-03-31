@@ -1,35 +1,122 @@
-<div>
-    <div>
-        <h4>My Profile</h4>
+<style>
+    /*.banner {*/
+    /*    background: #7ac043;*/
+    /*}*/
+        
+    .body {
+        margin-top: 250px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+      
+    /*.title {*/
+    /*    color: white;*/
+    /*    margin-top: 70px;*/
+    /*    margin-left: 140px;*/
+    /*    font-family: verdana;*/
+    /*}*/
+      
+    /*.subtitle {*/
+    /*    color: #E94A22;*/
+    /*    margin-top: 10px;*/
+    /*}*/
+      
+    /*.menu {*/
+    /*    font-family: verdana;*/
+    /*    color: black;*/
+    /*    margin-right: 15px;*/
+    /*    margin-left: 15px;*/
+    /*    height: 45px;*/
+    /*}*/
+    
+    /*.b {*/
+    /*    background: #FFF1C1;*/
+    /*  }*/
+    
+    /*.ques {*/
+    /*    font-family: verdana;*/
+    /*    font-weight: bold;*/
+    /*    color: #F2466E; */
+    /*    font-style: italic;*/
+    /*  }*/
+    
+    /*.ans {*/
+    /*    font-family: verdana;*/
+    /*    font-weight: bold;*/
+    /*    font-style: italic;*/
+    /*  }*/
+    
+    /*.box {*/
+    /*    padding: 10px;*/
+    /*  }*/
+    
+    /*.sub {*/
+    /*    color: #20B2AA;*/
+    /*    font-family: verdana;*/
+    /*    text-align: center;*/
+    /*    padding: 10px;*/
+    /*  }*/
+    
+    /*  .type {*/
+    /*    font-family: verdana;*/
+    /*    font-style: italic;*/
+    /*  }*/
+    /*  .typetitle {*/
+    /*    font-family: verdana;*/
+    /*    text-align: center;*/
+    /*    padding: 10px;*/
+    /*  }*/
+         
+</style>
+
+<div class='body'>
+
+    <h4>My Profile</h4>
+    
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="<%= @volunteer.picture %>" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <p class="card-title"><b>Name:</b> <%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
+                <p class="card-text"><b>Email:</b> <%= @volunteer.email %></p>
+                <p class="card-text"><b>Phone:</b> <%= @volunteer.mobile_phone %></p>
+                <p class="card-text"><b>Location:</b> <%= @volunteer.city %>, <%= @volunteer.state %></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <img src="<%= @volunteer.picture %>" height=50px>
-        <h5>Name:</h5> <p><%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
-        <h5>Email:</h5> <p><%= @volunteer.email %></p>
-        <h5>Phone:</h5> <p><%= @volunteer.mobile_phone %></p>
-        <h5>Location:</h5> <p><%= @volunteer.city %>, <%= @volunteer.state %> </h5>
+            
+    <h4>Personal Information</h4>
+    
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <p class="card-text"><b>Birthdate:</b> <%= @volunteer.birthdate %></p>
+                    <p class="card-text"><b>Employer:</b> <%= @volunteer.employer %></p>
+                    <p class="card-text"><b>Gender:</b> <%= @volunteer.gender %></p>
+                    <p class="card-text"><b>Position:</b> <%= @volunteer.position %></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <h4>Personal Information</h4>
-    </div>
-    <div>
-        <h5>Birthdate:</h5> <p><%= @volunteer.birthdate %></p>
-        <h5>Gender:</h5> <p><%= @volunteer.gender %></p>
-        <h5>Employer:</h5> <p><%= @volunteer.employer %></p>
-        <h5>Position:</h5> <p><%= @volunteer.position %></p>
-    </div>
-    <div>
-        <h5>Availability:</h5> <p><%= @volunteer.availability %></p>
-        <h5>My Skills:</h5><p><%= @volunteer.skill %></p>
-        <h5>Notes regarding my skills and availability:</h5>
-        <p><%= @volunteer.volunteer_notes %></p>
-    </div>
-    <div>
-       <%= link_to 'Edit Profile', edit_volunteer_path(@volunteer) %>
-        <!-- Do we want to add a link to delete a profile? Or ask them to submit a request to delete the profile to the administrator -->
-    </div>
-    <div>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    
+    <h4>Skills/Interests & Availability</h4>
+    
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <p class="card-text"><b>Availability:</b> <%= @volunteer.availability %></p>
+                    <p class="card-text"><b>My Skills:</b> <%= @volunteer.skill %></p>
+                    <p class="card-text"><b>Notes regarding my skills and availability:</b></p>
+                    <p class="card-text"><%= @volunteer.volunteer_notes %></p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
