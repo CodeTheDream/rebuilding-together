@@ -1,7 +1,26 @@
-<%= render 'banner' %>
+<style>
 
-<div>
-    <h1>Create a New Volunteer Profile</h1>
+    .body {
+        margin-top: 200px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    
+    .edit_title {
+        text-align: center;
+    }
+         
+</style>
+
+<div class='fixed-top'>
+    <%= render 'banner' %>
 </div>
 
-<%= render 'form' %>
+<div class='body'>
+    <div class='edit_title'>
+        <h2>CREATE PROFILE</h2>
+    </div>
+    <div>
+    <%= render 'form' %>
+    </div>
+</div>

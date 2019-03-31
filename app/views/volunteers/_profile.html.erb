@@ -1,72 +1,15 @@
 <style>
-    /*.banner {*/
-    /*    background: #7ac043;*/
-    /*}*/
-        
+ 
     .body {
         margin-top: 250px;
         margin-left: 25px;
         margin-right: 25px;
     }
-      
-    /*.title {*/
-    /*    color: white;*/
-    /*    margin-top: 70px;*/
-    /*    margin-left: 140px;*/
-    /*    font-family: verdana;*/
-    /*}*/
-      
-    /*.subtitle {*/
-    /*    color: #E94A22;*/
-    /*    margin-top: 10px;*/
-    /*}*/
-      
-    /*.menu {*/
-    /*    font-family: verdana;*/
-    /*    color: black;*/
-    /*    margin-right: 15px;*/
-    /*    margin-left: 15px;*/
-    /*    height: 45px;*/
-    /*}*/
     
-    /*.b {*/
-    /*    background: #FFF1C1;*/
-    /*  }*/
+    h4 {
+        color: #7ac043;
+    }
     
-    /*.ques {*/
-    /*    font-family: verdana;*/
-    /*    font-weight: bold;*/
-    /*    color: #F2466E; */
-    /*    font-style: italic;*/
-    /*  }*/
-    
-    /*.ans {*/
-    /*    font-family: verdana;*/
-    /*    font-weight: bold;*/
-    /*    font-style: italic;*/
-    /*  }*/
-    
-    /*.box {*/
-    /*    padding: 10px;*/
-    /*  }*/
-    
-    /*.sub {*/
-    /*    color: #20B2AA;*/
-    /*    font-family: verdana;*/
-    /*    text-align: center;*/
-    /*    padding: 10px;*/
-    /*  }*/
-    
-    /*  .type {*/
-    /*    font-family: verdana;*/
-    /*    font-style: italic;*/
-    /*  }*/
-    /*  .typetitle {*/
-    /*    font-family: verdana;*/
-    /*    text-align: center;*/
-    /*    padding: 10px;*/
-    /*  }*/
-         
 </style>
 
 <div class='body'>
@@ -112,8 +55,7 @@
                 <div class="card-body">
                     <p class="card-text"><b>Availability:</b> <%= @volunteer.availability %></p>
                     <p class="card-text"><b>My Skills:</b> <%= @volunteer.skill %></p>
-                    <p class="card-text"><b>Notes regarding my skills and availability:</b></p>
-                    <p class="card-text"><%= @volunteer.volunteer_notes %></p>
+                    <p class="card-text"><b>Notes regarding my skills and availability:</b> <%= @volunteer.volunteer_notes %></p>
                 </div>
             </div>
         </div>

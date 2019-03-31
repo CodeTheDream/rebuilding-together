@@ -1,3 +1,12 @@
+<style>
+
+    h4 {
+        color: #7ac043;
+    }
+      
+</style>
+
+
 <div>
     <%= form_for @volunteer do |f| %>
     <div>
@@ -9,9 +18,7 @@
                         <%= f.file_field :picture, placeholder: 'Upload a profile picture.' %>
                     </div>
             </div>
-        </form>
-        
-        <form>
+            
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
@@ -24,6 +31,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
@@ -36,6 +44,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
@@ -48,6 +57,7 @@
                     </div>
                 </div>
             </div>
+    <br>
     <h4>Personal Information</h4>
             <div class="form-group">
                 <div class="row">
@@ -61,6 +71,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
@@ -73,74 +84,65 @@
                     </div>
                 </div>
             </div>
- 
+    <br>
     <h4>Volunteer Interests and Availability</h4>
-    <h5>Availability. Select all that apply.</h5>
+    <p><b>Availability:</b>  Select a day you're availabile.</p>
             <!-- style to make multiple checkbox options and style into columns -->
-        <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                    <label class="form-check-label" for="gridCheck1">
-                    Example checkbox
-                    </label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <%= f.radio_button :availability, 'Sunday' %>
+                        <%= f.label :availability, 'Sunday' %> <br>
+
+                        <%= f.radio_button :availability, 'Monday' %>
+                        <%= f.label :availability, 'Monday' %> <br>
+                
+                        <%= f.radio_button :availability, 'Tuesday' %>
+                        <%= f.label :availability, 'Tuesday' %> <br>    
+         
+                        <%= f.radio_button :availability, 'Wednesday' %>
+                        <%= f.label :availability, 'Wednesday' %> <br>
+
+                        <%= f.radio_button :availability, 'Thursday' %>               
+                        <%= f.label :availability, 'Thursday' %> <br>
+            
+                        <%= f.radio_button :availability, 'Friday' %>
+                        <%= f.label :availability, 'Friday' %> <br>
+
+                        <%= f.radio_button :availability, 'Saturday' %>
+                        <%= f.label :availability, 'Saturday' %>
+                    </div>
                 </div>
             </div>
-        </div>
- 
-                <%= f.radio_button :availability, 'Sunday' %>
-                <%= f.label :availability, 'Sunday' %> <br><br>
-                    
-                <%= f.radio_button :availability, 'Monday' %>
-                <%= f.label :availability, 'Monday' %> <br><br>
-                
-                <%= f.radio_button :availability, 'Tuesday' %>
-                <%= f.label :availability, 'Tuesday' %> <br><br>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <%= f.label :skill, "List your volunteer skills and interests." %>
+                        <%= f.text_field :skill, class: "form-control" %>
+                    </div>
+                </div>
+            </div>
             
-                <%= f.radio_button :availability, 'Wednesday' %>
-                <%= f.label :availability, 'Wednesday' %> <br><br>
-                   
-                <%= f.radio_button :availability, 'Thursday' %>
-                <%= f.label :availability, 'Thursday' %> <br><br>
-                 
-                <%= f.radio_button :availability, 'Friday' %>
-                <%= f.label :availability, 'Friday' %> <br><br>
-                
-                <%= f.radio_button :availability, 'Saturday' %>
-                <%= f.label :availability, 'Saturday' %> <br><br>
-              
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <%= f.label :volunteer_notes, "Notes regarding my skills and availability:"%>
+                        <%= f.text_area :volunteer_notes, cols: 100, rows: 3, class: "form-control" %>
+                    </div>
+                </div>
+            </div>
                 <!-- Add optionfor volunteer to select from repairs, drop box -->
                 <!--<%# select_tag 'repair_id', options_from_collection_for_select(@repair, :id, :type) %>-->
-                <%= f.label :skill, "Skills & Interests" %>
-                <%= f.text_field :skill %> <br><br>
-              
-                <%= f.label :volunteer_notes, "Notes regarding my skills and availability:"%>
-                <%= f.text_area :volunteer_notes, cols: 100, rows: 3 %> <br><br>
+            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                       <%= f.submit "Save", class: "btn btn-dark"%>
+                    </div>
+                </div>
             </div>
-    
-     
-          
-          <div class="form-group">
-            <label for="exampleFormControlSelect2">Example multiple select</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
         </form>
-        
-        
-
-       
-                <%= f.submit "Save" %>
     </div>           
     <% end %>
 </div>

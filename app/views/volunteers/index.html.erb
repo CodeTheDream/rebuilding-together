@@ -1,37 +1,102 @@
-<!--Include links to view volunteers, view homes, search or sort volunteers/homes-->
-<div>
-    <h1>Volunteers</h1>
-    <h2>Welcome Rebuilding Together of the Triangle Staff!</h2>
-    <h3>Below is a list of your volunteers.</h3>
+<style>
+ 
+    .body {
+        margin-top: 250px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    
+    .banner {
+        background: #7ac043;
+    }
+        
+    .logo {
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-bottom: 20px;
+    }
+      
+    .title {
+        color: white;
+        margin-top: 70px;
+        margin-left: 200px;
+        font-family: verdana;
+    }
+    .center_text {
+        text-align: center;
+    }
+    
+    .card_title {
+        color: #7ac043;
+    }
+    
+    .card_padding {
+        padding: 10px;
+    }
+</style>
+
+<!--Include nav bard for links to view volunteers, view homes, search or sort volunteers/homes-->
+<div class='fixed-top'>
+    <div class="banner">
+        <div class="row">
+            <div class="col-md-4, logo">
+                <img src='http://rebuildingtogethertriangle.force.com//servlet/servlet.FileDownload?file=0150V00000Cw36U' height=140px>
+            </div>
+            <div class="col-md-8">
+                <h1 class='title'><b>Staff Portal</b></h1>
+            </div>
+        </div>
+    </div> 
 </div>
+
+<div class="body">
+    <div>
+        <h2 class="center_text">VOLUNTEERS</h2> <br>
+        <h4 class="center_text">Welcome Rebuilding Together of the Triangle Staff!</h4>
+        <h4 class="center_text">Below is a list of your volunteers.</h4>
+    </div>
 
 <% @volunteer.each do |volunteer| %>
-<div>
-    <div>
-        <img src="<%= volunteer.picture %>" height=50px>
-        <h5>Name:</h5> <p><%= volunteer.first_name %> <%= volunteer.last_name %></p>
-        <h5>Email:</h5> <p><%= volunteer.email %></p>
-        <h5>Phone:</h5> <p><%= volunteer.mobile_phone %></p>
-        <h5>Location:</h5> <p><%= volunteer.city %>, <%= volunteer.state %> </h5>
+    <div class="card_padding">    
+        <div class="card lg-12" style="max-width: 100%;">
+            <div class="row no-gutters">
+                <div class="col-lg-2">
+                    <img src="<%= volunteer.picture %>" class="card-img" alt="...">
+                    <br><br>
+                    <h5><%= volunteer.first_name %> <%= volunteer.last_name %></h5>
+                    <h6><i><%= volunteer.city %>, <%= volunteer.state %></i></h6>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card-body">
+                    <p class="card_title"><b>Contact Info</b></p>
+                    <p class="card-text"><b>Email:</b> <%= volunteer.email %></p>
+                    <p class="card-text"><b>Phone:</b> <%= volunteer.mobile_phone %></p>
+                    <p class="card-text"><b>Location:</b> <%= volunteer.city %>, <%= volunteer.state %></p>
+                   </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card-body">
+                    <p class="card_title"><b>Personal Info</b></p>
+                    <p class="card-text"><b>Birthdate:</b> <%= volunteer.birthdate %></p>
+                    <p class="card-text"><b>Employer:</b> <%= volunteer.employer %></p>
+                    <p class="card-text"><b>Gender:</b> <%= volunteer.gender %></p>
+                    <p class="card-text"><b>Position:</b> <%= volunteer.position %></p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card-body">
+                    <p class="card_title"><b>Availability & Skills</b></p>
+                    <p class="card-text"><b>Availability:</b> <%= volunteer.availability %></p>
+                    <p class="card-text"><b>Volunteer's Skills:</b> <%= volunteer.skill %></p>
+                    <p class="card-text"><b>Notes regarding volunteer's availability and skills:</b> <%= volunteer.volunteer_notes %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <h4>Volunteer's Personal Information</h4>
-    </div>
-    <div>
-        <h5>Birthdate:</h5> <p><%= volunteer.birthdate %></p>
-        <h5>Gender:</h5> <p><%= volunteer.gender %></p>
-        <h5>Employer:</h5> <p><%= volunteer.employer %></p>
-        <h5>Position:</h5> <p><%= volunteer.position %></p>
-    </div>
-    <div>
-        <h5>Availability:</h5> <p><%= volunteer.availability %></p>
-        <h5>Volunteer's Skills:</h5><p><%= volunteer.skill %></p>
-        <h5>Notes regarding volunteer's skills and availability:</h5>
-        <p><%= volunteer.volunteer_notes %></p>
-    </div>
-</div>
-
 <% end %>
-<div>
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    
+    <div>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-dark" %>
+    </div>
 </div>
