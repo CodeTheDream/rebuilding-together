@@ -3,6 +3,11 @@
     h4 {
         color: #7ac043;
     }
+     
+    .picture {
+        width: 150px;
+        height: auto;
+    }
       
 </style>
 
@@ -16,6 +21,9 @@
                     <div>
                         <%= f.label :picture, "Volunteer Photo:" %>
                         <%= f.file_field :picture, placeholder: 'Upload a profile picture.' %>
+                        <% if @volunteer.picture? %> 
+                            <%= image_tag @volunteer.picture.url, class: "picture" %>                            Remove Picture
+                        <% end %>
                     </div>
             </div>
             

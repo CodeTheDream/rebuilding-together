@@ -33,6 +33,11 @@
     .card_padding {
         padding: 10px;
     }
+    
+    .picture {
+        width: 100%;
+        height: auto;
+    }
 </style>
 
 <!--Include nav bard for links to view volunteers, view homes, search or sort volunteers/homes-->
@@ -61,7 +66,9 @@
         <div class="card lg-12" style="max-width: 100%;">
             <div class="row no-gutters">
                 <div class="col-lg-2">
-                    <img src="<%= volunteer.picture %>" class="card-img" alt="...">
+                    <% if volunteer.picture? %>
+                        <%= image_tag volunteer.picture.url, class: "picture" %>
+                    <% end %>
                     <br><br>
                     <h5><%= volunteer.first_name %> <%= volunteer.last_name %></h5>
                     <h6><i><%= volunteer.city %>, <%= volunteer.state %></i></h6>
@@ -99,4 +106,7 @@
     <div>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-dark" %>
     </div>
+</div>
+<div class='fixed-bottom'>
+    <%= render 'footer' %>
 </div>

@@ -10,6 +10,10 @@
         color: #7ac043;
     }
     
+    .picture {
+        width: 100%;
+        height: auto;
+    }
 </style>
 
 <div class='body'>
@@ -18,10 +22,12 @@
     
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="<%= @volunteer.picture %>" class="card-img" alt="...">
+            <div class="col-md-6">
+                <% if @volunteer.picture? %>
+                        <%= image_tag @volunteer.picture.url, class: "picture" %>
+                <% end %>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card-body">
                 <p class="card-title"><b>Name:</b> <%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
                 <p class="card-text"><b>Email:</b> <%= @volunteer.email %></p>

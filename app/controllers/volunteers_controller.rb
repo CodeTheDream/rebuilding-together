@@ -48,6 +48,12 @@ before_action :authenticate_user!
       redirect_to volunteer_path(volunteer.id)
   end
 
+  def destroy
+    volunteer = Volunteer.find(params[:id])
+    volunteer.destroy
+    redirect_to volunteer_path(volunteer.id)
+  end
+  
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
@@ -68,6 +74,6 @@ private
     def volunteer_params
       params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
       :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-      :availability, :skill, :volunteer_notes)
+      :availability, :skill, :volunteer_notes, :remove)
     end
 end
