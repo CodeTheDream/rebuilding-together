@@ -1,60 +1,58 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-
-
-
+  <div class="col-md-6 col-md-offset-2">
     <h1><%= @owner.full_name%></h1>
-
     <p>
-      <strong>Address:</strong>
-      <%= @owner.full_address %>
+    <strong>Address:</strong>
+    <mark><%= @owner.full_address %></mark>
     </p>
 
     <p>
-      <strong>Phone:</strong>
-      <%= @owner.phone %>
+    <strong>Phone:</strong>
+    <mark><%= @owner.phone %></mark>
     </p>
 
     <p>
-      <strong>Email:</strong>
-      <%= @owner.email %>
+    <strong>Email:</strong>
+    <mark><%= @owner.email %></mark>
     </p>
 
     <p>
-      <strong>Years at home:</strong>
-      <%= @owner.year %>
+    <strong>Years at home:</strong>
+    <mark><%= @owner.year %></mark>
     </p>
 
     <p>
-      <strong>Emergency Contact:</strong>
-      <%= @owner.em_contact_name %>
+    <strong>Emergency Contact:</strong>
+    <mark><%= @owner.em_contact_name %></mark>
     </p>
 
     <p>
-      <strong>Emergency Phone:</strong>
-      <%= @owner.em_contact_phone %>
+    <strong>Emergency Phone:</strong>
+    <mark><%= @owner.em_contact_phone %></mark>
     </p>
 
     <p>
-      <strong>Emergency Contact Relationship:</strong>
-      <%= @owner.em_contact_relationship %>
+    <strong>Emergency Contact Relationship:</strong>
+    <mark><%= @owner.em_contact_relationship %></mark>
     </p>
 
     <p>
-      <strong>Language:</strong>
-      <%= @owner.language %>
+    <strong>Language:</strong>
+    <mark><%= @owner.language %></mark>
     </p>
 
     <p>
-      <strong>How did you hear about?</strong>
-      <%= @owner.howd_you_hear %>
+    <strong>How did you hear about?</strong>
+    <mark><%= @owner.howd_you_hear %></mark>
     </p>
 
 
-      <%= link_to "Edit", edit_owner_path(@owner)%>
-      <%= link_to "Delete", @owner, method: :delete, data: { confirm: "Are you sure?" }%><br>
+    <%= link_to "Edit", edit_owner_path(@owner)%>
+    <%= link_to "Delete", @owner, method: :delete, data: { confirm: "Are you sure?" }%><br>
 
-      <%= link_to "Back to owners", owners_path, class: "btn btn-info btn-sm"%>
+    <%= link_to "Back to owners", owners_path, class: "btn btn-info btn-sm"%>
 
-    </div>
+    <%= link_to "Request a repair", repairs_path, class: "btn btn-info btn-sm"%>
+
+  </div>
 </div>

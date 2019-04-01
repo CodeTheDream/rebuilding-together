@@ -1,34 +1,36 @@
 <%= form_for(@owner) do |f| %>
-  <%= f.label  :full_name %><br>
-  <%= f.text_field :first_name, placeholder: "First name..." %>
-  <!-- < f.label  :middle_name %> -->
-  <%= f.text_field :middle_name, placeholder: "Middle name..." %>
-  <!-- < f.label  :last_name %> -->
-  <%= f.text_field :last_name, placeholder: "Last name..." %><br>
-  <%= f.label  :address %><br>
-  <%= f.text_field :address, placeholder: "Street name/number..."%>
-  <!-- < f.label  :city %> -->
-  <%= f.text_field :city, placeholder: "City..."%>
-  <!-- < f.label  :state %> -->
-  <%= f.text_field :state, placeholder: "State..." %>
-  <!-- < f.label  :zip %> -->
-  <%= f.text_field :zip, placeholder: "Zipcode..."%><br>
-  <%= f.label  :years_lived_at_home %>
-  <%= f.text_field :year, class: "form-control" %>
-  <%= f.label  :email %>
-  <%= f.text_field :email, class: "form-control" %>
-  <%= f.label  :phone %>
-  <%= f.text_field :phone, class: "form-control" %>
-  <%= f.label  :Emergency_contact %><br>
-  <%= f.text_field :em_contact_name, placeholder: "Name..." %>
-  <!-- < f.label  :em_contact_phone %> -->
-  <%= f.text_field :em_contact_phone, placeholder: "Phone..." %>
-  <!-- < f.label  :em_contact_relationship %> -->
-  <%= f.text_field :em_contact_relationship, placeholder: "Relationship..." %><br>
-  <%= f.label  :language %>
-  <%= f.text_field :language, class: "form-control" %>
-  <%= f.label  :how_did_you_hear? %>
-  <%= f.text_field :howd_you_hear, class: "form-control" %><br>
-  <%= f.submit yield(:button_text), class: "btn btn-primary btn-lg" %>
+  <div class="field">
+    <%= f.label  :first_name %>
+    <%= f.text_field :first_name, class: "form-control" %>
+    <%= f.label  :middle_name %>
+    <%= f.text_field :middle_name, class: "form-control" %>
+    <%= f.label  :last_name %>
+    <%= f.text_field :last_name, class: "form-control" %>
+    <%= f.label  :address %>
+    <%= f.text_field :address, class: "form-control" %>
+    <%= f.label  :city %>
+    <%= f.text_field :city, class: "form-control" %>
+    <%= f.label  :state, "State/Province/Region" %>
+    <%= f.text_field :state, class: "form-control" %>
+    <%= f.label  :zip, "ZIP Code" %>
+    <%= f.text_field :zip, class: "form-control" %>
+    <%= f.label  :year, "Years lived in your current home" %>
+    <%= f.select(:year, (1..30))%>
+    <%= f.label  :email %>
+    <%= f.text_field :email, class: "form-control" %>
+    <%= f.label  :phone %>
+    <%= f.text_field :phone, class: "form-control" %>
+    <%= f.label  :em_contact_name, "Emergency contact name" %>
+    <%= f.text_field :em_contact_name, class: "form-control" %>
+    <%= f.label  :em_contact_phone, "Emergency contact phone" %>
+    <%= f.text_field :em_contact_phone, class: "form-control" %>
+    <%= f.label  :em_contact_relationship, "Emergency contact relationship" %>
+    <%= f.select(:em_contact_relationship, options_for_select(em_contact_relationship_options)) %>
+    <%= f.label  :language %>
+    <%= f.select(:language, options_for_select(language_options)) %>
+    <%= f.label  :howd_you_hear, "How did you hear?" %>
+    <%= f.select(:howd_you_hear, options_for_select(howd_you_hear_options)) %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary btn-lg" %>
 
+  </div>
 <% end %>
