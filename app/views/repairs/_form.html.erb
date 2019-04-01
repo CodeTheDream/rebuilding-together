@@ -1,7 +1,7 @@
 <%= form_for @repairs do |f| %>
     <div>
-   Repair Type: <%= f.text_field :repair_type, class:'form-control', size: '67x12', placeholder:'What type of repair will you like done' %>
+   Repair Type: <%= f.text_field :repair_type, class:'form-control', placeholder:'What type of repair will you like done' %>
     </div>
-   Repair Notes: <%= f.text_area :repair_notes, class:'form-control', size: '60x12', placeholder:'Repair Notes' %><br/>
+   Repair Notes: <%= f.text_area :repair_notes, class:'form-control',  placeholder:'Repair Notes' %><br/>
                  <%= f.submit 'Submit' %>
 <% end %>
