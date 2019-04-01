@@ -3,47 +3,47 @@
     <h1><%= @owner.full_name%></h1>
     <p>
     <strong>Address:</strong>
-    <mark><%= @owner.full_address %></mark>
+    <%= @owner.full_address %>
     </p>
 
     <p>
     <strong>Phone:</strong>
-    <mark><%= @owner.phone %></mark>
+    <%= @owner.phone %>
     </p>
 
     <p>
     <strong>Email:</strong>
-    <mark><%= @owner.email %></mark>
+    <%= @owner.email %>
     </p>
 
     <p>
     <strong>Years at home:</strong>
-    <mark><%= @owner.year %></mark>
+    <%= @owner.year %>
     </p>
 
     <p>
     <strong>Emergency Contact:</strong>
-    <mark><%= @owner.em_contact_name %></mark>
+    <%= @owner.em_contact_name %>
     </p>
 
     <p>
     <strong>Emergency Phone:</strong>
-    <mark><%= @owner.em_contact_phone %></mark>
+    <%= @owner.em_contact_phone %>
     </p>
 
     <p>
     <strong>Emergency Contact Relationship:</strong>
-    <mark><%= @owner.em_contact_relationship %></mark>
+    <%= @owner.em_contact_relationship %>
     </p>
 
     <p>
     <strong>Language:</strong>
-    <mark><%= @owner.language %></mark>
+    <%= @owner.language %>
     </p>
 
     <p>
     <strong>How did you hear about?</strong>
-    <mark><%= @owner.howd_you_hear %></mark>
+    <%= @owner.howd_you_hear %>
     </p>
 
 
@@ -51,7 +51,6 @@
     <%= link_to "Delete", @owner, method: :delete, data: { confirm: "Are you sure?" }%><br>
 
     <%= link_to "Back to owners", owners_path, class: "btn btn-info btn-sm"%>
-
     <%= link_to "Request a repair", repairs_path, class: "btn btn-info btn-sm"%>
 
   </div>
