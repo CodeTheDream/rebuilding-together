@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_152329) do
+ActiveRecord::Schema.define(version: 2019_04_02_202401) do
 
   create_table "owners", force: :cascade do |t|
     t.integer "user_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_04_01_152329) do
     t.string "zip"
     t.string "country"
     t.string "year"
-    t.string "email"
     t.string "phone"
     t.string "em_contact_name"
     t.string "em_contact_phone"
