@@ -63,6 +63,12 @@ before_action :authenticate_user!
     # for volunteer to remove project, perhaps include a note for why they're
     # no longer available?
   end
+  
+  def add_repair
+    @repairs = Repair.all
+  end
+  
+  
 
 private
     def volunteer_params

@@ -1,0 +1,6 @@
+
+<% @repairs.each do |repair| %>
+    Repair Type: <%= repair.repair_type %><br/>
+    Repair Notes: <%= repair.repair_notes %><br/>
+    <%= link_to 'Sign up for a repair', add_repair_volunteer_path(repair) %>
+<% end %>

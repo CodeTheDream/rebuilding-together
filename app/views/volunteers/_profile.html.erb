@@ -28,6 +28,7 @@
        <%= link_to 'Edit Profile', edit_volunteer_path(@volunteer) %>
         <!-- Do we want to add a link to delete a profile? Or ask them to submit a request to delete the profile to the administrator -->
     </div>
+    <%= link_to 'Sign up for a repair', add_repair_volunteers_path %>
     <div>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
     </div>
