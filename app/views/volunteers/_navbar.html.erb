@@ -2,7 +2,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <%= link_to "Home", root_path, class: "nav-item nav-link" %>
-      <%= link_to "My Profile", volunteer_path(current_user.volunteer.id), class: "nav-item nav-link" %>
+      <%= link_to "My Profile", volunteer_path(current_user.volunteer), class: "nav-item nav-link" %>
       <%= link_to 'Edit Profile', edit_volunteer_path(@volunteer), class: "nav-item nav-link" %>
       <%= link_to 'Delete Profile', volunteer_path(@volunteer), method: :delete, class: "nav-item nav-link" %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>

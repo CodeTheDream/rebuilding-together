@@ -38,7 +38,7 @@ before_action :authenticate_user!
 
   def edit
     # @repair = Repair.all
-    @volunteer = Volunteer.find(current_user.id)
+    @volunteer = current_user.volunteer
   end
 
   def update
