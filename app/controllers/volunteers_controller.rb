@@ -70,11 +70,12 @@ before_action :authenticate_user!
   end
   
  def add_repair_volunteer
-   @volunteer_repairs = VolunteerRepair.find(params[:id])
-   volunteer_repairs = VolunteerRepair.new
-   volunteer_repairs.volunteer_id = current_user.volunteer.id
-   volunteer_repairs.repair_id = params[:id]
-   volunteer_repairs.save
+   @volunteer = Volunteer.find(params[:id])
+   @repair = Repair.find(params[:id]) 
+   @volunteer_repair = VolunteerRepair.new
+   @volunteer_repair.volunteer_id = current_user.volunteer.id
+   @volunteer_repair.repair_id = @repair.id
+   @volunteer_repair.save
  end
 
 private
