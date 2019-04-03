@@ -5,8 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.0'
 
-gem 'carrierwave'
-gem 'jquery-rails'
+gem 'carrierwave', '~> 0.11.2'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'pundit'

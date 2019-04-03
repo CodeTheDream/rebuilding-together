@@ -1,72 +1,51 @@
-<style>
- 
-    .body {
-        margin-top: 250px;
-        margin-left: 25px;
-        margin-right: 25px;
-    }
-    
-    h4 {
-        color: #7ac043;
-    }
-    
-    .picture {
-        width: 100%;
-        height: auto;
-    }
-</style>
+<div class='profile-body'>
 
-<div class='body'>
-
-    <h4>My Profile</h4>
+  <h4>My Profile</h4>
     
     <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-6">
-                <% if @volunteer.picture? %>
-                        <%= image_tag @volunteer.picture.url, class: "picture" %>
-                <% end %>
-            </div>
-            <div class="col-md-6">
-                <div class="card-body">
-                <p class="card-title"><b>Name:</b> <%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
-                <p class="card-text"><b>Email:</b> <%= @volunteer.email %></p>
-                <p class="card-text"><b>Phone:</b> <%= @volunteer.mobile_phone %></p>
-                <p class="card-text"><b>Location:</b> <%= @volunteer.city %>, <%= @volunteer.state %></p>
-                </div>
-            </div>
+      <div class="row no-gutters">
+        <div class="col-4">
+          <% if @volunteer.picture? %>
+            <%= image_tag @volunteer.picture.url, class: "picture" %>
+          <% else %>
+            <%= image_tag "http://turnersrepair.com/wp-content/uploads/2018/06/profile-clipart-generic-user-7-1.png", class:"pic-placeholder" %>
+          <% end %>
         </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          <p><strong>Name:</strong> <%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
+          <p><strong>Email:</strong> <%= @volunteer.email %></p>
+          <p><strong>Phone:</strong> <%= @volunteer.mobile_phone %></p>
+          <p><strong>Location:</strong> <%= @volunteer.city %>, <%= @volunteer.state %></p>
+        </div>
+      </div>
     </div>
             
-    <h4>Personal Information</h4>
+  <h4>Personal Information</h4>
     
     <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-12">
-                <div class="card-body">
-                    <p class="card-text"><b>Birthdate:</b> <%= @volunteer.birthdate %></p>
-                    <p class="card-text"><b>Employer:</b> <%= @volunteer.employer %></p>
-                    <p class="card-text"><b>Gender:</b> <%= @volunteer.gender %></p>
-                    <p class="card-text"><b>Position:</b> <%= @volunteer.position %></p>
-                </div>
-            </div>
+      <div class="row no-gutters">
+        <div class="col-12">
+          <p><strong>Gender:</strong> <%= @volunteer.gender %></p>
+          <p><strong>Birthdate:</strong> <%= @volunteer.birthdate %></p>
+          <p><strong>Employer:</strong> <%= @volunteer.employer %></p>
+          <p><strong>Position:</strong> <%= @volunteer.position %></p>
         </div>
+      </div>
     </div>
     
-    <h4>Skills/Interests & Availability</h4>
+  <h4>Skills/Interests & Availability</h4>
     
     <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-12">
-                <div class="card-body">
-                    <p class="card-text"><b>Availability:</b> <%= @volunteer.availability %></p>
-                    <p class="card-text"><b>My Skills:</b> <%= @volunteer.skill %></p>
-                    <p class="card-text"><b>Notes regarding my skills and availability:</b> <%= @volunteer.volunteer_notes %></p>
-                </div>
-            </div>
+      <div class="row no-gutters">
+        <div class="col-12">
+          <p><strong>Availability:</strong> <%= @volunteer.availability %></p>
+          <p><strong>My Skills:</strong> <%= @volunteer.skill %></p>
+          <p><strong>Notes regarding my skills and availability:</strong> <%= @volunteer.volunteer_notes %></p>
         </div>
+      </div>
     </div>
-</div>
+ </div>
 
 <%#<div>
     Show upcoming homes needing help, where volunteers can sign up for, based on skills they select. 

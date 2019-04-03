@@ -1,112 +1,63 @@
-<style>
- 
-    .body {
-        margin-top: 250px;
-        margin-left: 25px;
-        margin-right: 25px;
-    }
-    
-    .banner {
-        background: #7ac043;
-    }
-        
-    .logo {
-        margin-top: 20px;
-        margin-left: 40px;
-        margin-bottom: 20px;
-    }
-      
-    .title {
-        color: white;
-        margin-top: 70px;
-        margin-left: 200px;
-        font-family: verdana;
-    }
-    .center_text {
-        text-align: center;
-    }
-    
-    .card_title {
-        color: #7ac043;
-    }
-    
-    .card_padding {
-        padding: 10px;
-    }
-    
-    .picture {
-        width: 100%;
-        height: auto;
-    }
-</style>
+<div class="row banner">
+  <div class="col-4 logo">
+    <img src='http://rebuildingtogethertriangle.force.com//servlet/servlet.FileDownload?file=0150V00000Cw36U' height=100px>
+  </div>
+  <div class="col title">
+    <h1>Staff Portal</h1>
+  </div>
+</div>
 
 <!--Include nav bard for links to view volunteers, view homes, search or sort volunteers/homes-->
-<div class='fixed-top'>
-    <div class="banner">
-        <div class="row">
-            <div class="col-md-4, logo">
-                <img src='http://rebuildingtogethertriangle.force.com//servlet/servlet.FileDownload?file=0150V00000Cw36U' height=140px>
-            </div>
-            <div class="col-md-8">
-                <h1 class='title'><b>Staff Portal</b></h1>
-            </div>
-        </div>
-    </div> 
-</div>
 
-<div class="body">
-    <div>
-        <h2 class="center_text">VOLUNTEERS</h2> <br>
-        <h4 class="center_text">Welcome Rebuilding Together of the Triangle Staff!</h4>
-        <h4 class="center_text">Below is a list of your volunteers.</h4>
-    </div>
+<div class="index-body">
+  <div>
+    <h2 class="center">VOLUNTEERS</h2> <br>
+    <h4 class="center">Welcome Rebuilding Together of the Triangle Staff!</h4>
+    <h4 class="center">Below is a list of your volunteers.</h4>
+  </div>
 
-<% @volunteer.each do |volunteer| %>
-    <div class="card_padding">    
-        <div class="card lg-12" style="max-width: 100%;">
-            <div class="row no-gutters">
-                <div class="col-lg-2">
-                    <% if volunteer.picture? %>
-                        <%= image_tag volunteer.picture.url, class: "picture" %>
-                    <% end %>
-                    <br><br>
-                    <h5><%= volunteer.first_name %> <%= volunteer.last_name %></h5>
-                    <h6><i><%= volunteer.city %>, <%= volunteer.state %></i></h6>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card-body">
-                    <p class="card_title"><b>Contact Info</b></p>
-                    <p class="card-text"><b>Email:</b> <%= volunteer.email %></p>
-                    <p class="card-text"><b>Phone:</b> <%= volunteer.mobile_phone %></p>
-                    <p class="card-text"><b>Location:</b> <%= volunteer.city %>, <%= volunteer.state %></p>
-                   </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card-body">
-                    <p class="card_title"><b>Personal Info</b></p>
-                    <p class="card-text"><b>Birthdate:</b> <%= volunteer.birthdate %></p>
-                    <p class="card-text"><b>Employer:</b> <%= volunteer.employer %></p>
-                    <p class="card-text"><b>Gender:</b> <%= volunteer.gender %></p>
-                    <p class="card-text"><b>Position:</b> <%= volunteer.position %></p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card-body">
-                    <p class="card_title"><b>Availability & Skills</b></p>
-                    <p class="card-text"><b>Availability:</b> <%= volunteer.availability %></p>
-                    <p class="card-text"><b>Volunteer's Skills:</b> <%= volunteer.skill %></p>
-                    <p class="card-text"><b>Notes regarding volunteer's availability and skills:</b> <%= volunteer.volunteer_notes %></p>
-                    </div>
-                </div>
-            </div>
+  <% @volunteer.each do |volunteer| %>
+  <div class="card_padding">    
+    <div class="card lg-12" style="max-width: 100%;">
+      <div class="row no-gutters">
+        <div class="col-2">
+          <% if volunteer.picture? %>
+            <%= image_tag volunteer.picture.url, class:"picture" %>
+          <% else %>
+            <%= image_tag "http://turnersrepair.com/wp-content/uploads/2018/06/profile-clipart-generic-user-7-1.png", class:"pic-placeholder" %>
+          <% end %>
+          <br><br>
+          <h5><%= volunteer.first_name %> <%= volunteer.last_name %></h5>
+          <h6><i><%= volunteer.city %>, <%= volunteer.state %></i></h6>
         </div>
+  
+        <div class="col-3">
+          <p class="card_title"><strong>Contact Info</strong></p>
+          <p><strong>Email:</strong> <%= volunteer.email %></p>
+          <p><strong>Phone:</strong> <%= volunteer.mobile_phone %></p>
+          <p><strong>Location:</strong> <%= volunteer.city %>, <%= volunteer.state %></p>
+        </div>
+  
+        <div class="col-3">
+          <p class="card_title"><strong>Personal Info</strong></p>
+          <p><strong>Gender:</strong> <%= volunteer.gender %></p>
+          <p><strong>Birthdate:</strong> <%= volunteer.birthdate %></p>
+          <p><strong>Employer:</strong> <%= volunteer.employer %></p>
+          <p><strong>Position:</strong> <%= volunteer.position %></p>
+        </div>
+      
+        <div class="col-4">
+          <p class="card_title"><strong>Availability & Skills</strong></p>
+          <p><strong>Availability:</strong> <%= volunteer.availability %></p>
+          <p><strong>Volunteer's Skills:</strong> <%= volunteer.skill %></p>
+          <p><strong>Notes regarding volunteer's availability and skills:</strong> <%= volunteer.volunteer_notes %></p>
+        </div>
+      </div>
     </div>
+   </div>
 <% end %>
-    
-    <div>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-dark" %>
-    </div>
+<br>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-dark" %>
 </div>
-<div class='fixed-bottom'>
-    <%= render 'footer' %>
-</div>
+<br>
+<%= render 'footer' %>

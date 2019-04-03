@@ -1,156 +1,107 @@
-<style>
+<%= form_for @volunteer do |f| %>
+  <h4>Basic Information</h4>
+    <div class="form-group">
+      <%= f.label :picture, "Volunteer Photo:" %>
+        <%= f.file_field :picture %>
+        <% if @volunteer.picture? %> 
+          <%= image_tag @volunteer.picture.url, class: "pic-placeholder" %>
+        <% else %>
+        <% end %>
+     </div>
+        
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= f.label :first_name, "First Name:" %>
+        <%= f.text_field :first_name, class: "form-control" %> 
+      </div>
+      <div class="col-md-6">
+        <%= f.label :last_name, "Last Name:"%>
+        <%= f.text_field :last_name, class: "form-control" %> 
+      </div>
+    </div>
+        
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= f.label :email, "Email:"%>   
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :mobile_phone, "Phone:"%>
+        <%= f.telephone_field :mobile_phone, class: "form-control" %> 
+      </div>
+    </div>
+        
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= f.label :city, "City:" %>
+        <%= f.text_field :city, class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :state, "State:" %>
+        <%= f.text_field :state, class: "form-control" %>
+      </div>
+    </div>
+<br>
+  <h4>Personal Information</h4>
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= f.label :birthdate, "Birthdate:" %>
+        <%= f.date_field :birthdate, class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :gender, "Gender: To which gender identity do you most identify with?"%>
+        <%= f.select(:gender, options_for_select(['Female', 'Male', 'Other', 'Prefer Not to Answer'])) %>
+      </div>
+    </div>
+        
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= f.label :employer, "Employer:" %>
+        <%= f.text_field :employer, class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :position, "Position:"%>
+        <%= f.text_field :position, class: "form-control" %>
+      </div>
+    </div>
+<br>
+  <h4>Volunteer Interests and Availability</h4>
+  <p><strong>Availability:</strong>  Select a day you're availabile.</p>
+  <!-- style to make multiple checkbox options and style into columns -->
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= f.radio_button :availability, 'Sunday' %>
+        <%= f.label :availability, 'Sunday' %> <br>
 
-    h4 {
-        color: #7ac043;
-    }
-     
-    .picture {
-        width: 150px;
-        height: auto;
-    }
-      
-</style>
-
-
-<div>
-    <%= form_for @volunteer do |f| %>
-    <div>
-    <h4>Basic Information</h4>
-        <form>
-            <div class="form-group">
-                    <div>
-                        <%= f.label :picture, "Volunteer Photo:" %>
-                        <%= f.file_field :picture, placeholder: 'Upload a profile picture.' %>
-                        <% if @volunteer.picture? %> 
-                            <%= image_tag @volunteer.picture.url, class: "picture" %>                            Remove Picture
-                        <% end %>
-                    </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <%= f.label :first_name, "First Name:" %>
-                        <%= f.text_field :first_name, class: "form-control" %> 
-                    </div>
-                    <div class="col-md-6">
-                        <%= f.label :last_name, "Last Name:"%>
-                        <%= f.text_field :last_name, class: "form-control" %> 
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <%= f.label :email, "Email:"%>   
-                        <%= f.text_field :email, class: "form-control" %>
-                    </div>
-                    <div class="col-md-6">
-                        <%= f.label :mobile_phone, "Phone:"%>
-                        <%= f.telephone_field :mobile_phone, class: "form-control" %> 
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <%= f.label :city, "City:" %>
-                        <%= f.text_field :city, class: "form-control" %>
-                    </div>
-                    <div class="col-md-6">
-                        <%= f.label :state, "State:" %>
-                        <%= f.text_field :state, class: "form-control" %>
-                    </div>
-                </div>
-            </div>
-    <br>
-    <h4>Personal Information</h4>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <%= f.label :birthdate, "Birthdate:" %>
-                        <%= f.date_field :birthdate, class: "form-control" %>
-                    </div>
-                    <div class="col-md-6">
-                        <%= f.label :gender, "Gender: To which gender identity do you most identify with?"%>
-                        <%= f.select(:gender, options_for_select(['Female', 'Male', 'Other', 'Prefer Not to Answer'])) %>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <%= f.label :employer, "Employer:" %>
-                        <%= f.text_field :employer, class: "form-control" %>
-                    </div>
-                    <div class="col-md-6">
-                        <%= f.label :position, "Position:"%>
-                        <%= f.text_field :position, class: "form-control" %>
-                    </div>
-                </div>
-            </div>
-    <br>
-    <h4>Volunteer Interests and Availability</h4>
-    <p><b>Availability:</b>  Select a day you're availabile.</p>
-            <!-- style to make multiple checkbox options and style into columns -->
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <%= f.radio_button :availability, 'Sunday' %>
-                        <%= f.label :availability, 'Sunday' %> <br>
-
-                        <%= f.radio_button :availability, 'Monday' %>
-                        <%= f.label :availability, 'Monday' %> <br>
+        <%= f.radio_button :availability, 'Monday' %>
+        <%= f.label :availability, 'Monday' %> <br>
                 
-                        <%= f.radio_button :availability, 'Tuesday' %>
-                        <%= f.label :availability, 'Tuesday' %> <br>    
+        <%= f.radio_button :availability, 'Tuesday' %>
+        <%= f.label :availability, 'Tuesday' %> <br>    
          
-                        <%= f.radio_button :availability, 'Wednesday' %>
-                        <%= f.label :availability, 'Wednesday' %> <br>
+        <%= f.radio_button :availability, 'Wednesday' %>
+        <%= f.label :availability, 'Wednesday' %> <br>
 
-                        <%= f.radio_button :availability, 'Thursday' %>               
-                        <%= f.label :availability, 'Thursday' %> <br>
+        <%= f.radio_button :availability, 'Thursday' %>               
+        <%= f.label :availability, 'Thursday' %> <br>
             
-                        <%= f.radio_button :availability, 'Friday' %>
-                        <%= f.label :availability, 'Friday' %> <br>
+        <%= f.radio_button :availability, 'Friday' %>
+        <%= f.label :availability, 'Friday' %> <br>
 
-                        <%= f.radio_button :availability, 'Saturday' %>
-                        <%= f.label :availability, 'Saturday' %>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-12">
-                        <%= f.label :skill, "List your volunteer skills and interests." %>
-                        <%= f.text_field :skill, class: "form-control" %>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-12">
-                        <%= f.label :volunteer_notes, "Notes regarding my skills and availability:"%>
-                        <%= f.text_area :volunteer_notes, cols: 100, rows: 3, class: "form-control" %>
-                    </div>
-                </div>
-            </div>
-                <!-- Add optionfor volunteer to select from repairs, drop box -->
-                <!--<%# select_tag 'repair_id', options_from_collection_for_select(@repair, :id, :type) %>-->
-            
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-12">
-                       <%= f.submit "Save", class: "btn btn-dark"%>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>           
-    <% end %>
-</div>
+        <%= f.radio_button :availability, 'Saturday' %>
+        <%= f.label :availability, 'Saturday' %>
+      </div>
+    </div>
+    
+    <%= f.label :skill, "List your volunteer skills and interests." %>
+    <%= f.text_field :skill, class: "form-control" %>
+    
+    <%= f.label :volunteer_notes, "Notes regarding my skills and availability:"%>
+    <%= f.text_area :volunteer_notes, cols: 100, rows: 3, class: "form-control" %>
+    
+<!-- Add optionfor volunteer to select from repairs, drop box -->
+<!--<%# select_tag 'repair_id', options_from_collection_for_select(@repair, :id, :type) %>-->
+    <br>
+    <%= f.submit "Save", class: "btn btn-dark"%>
+    
+<% end %>

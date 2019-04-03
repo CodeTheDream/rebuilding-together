@@ -74,6 +74,6 @@ private
     def volunteer_params
       params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
       :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-      :availability, :skill, :volunteer_notes, :remove)
+      :availability, :skill, :volunteer_notes)
     end
 end
