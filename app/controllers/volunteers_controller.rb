@@ -3,6 +3,7 @@
 class VolunteersController < ApplicationController
 
 before_action :authenticate_user!
+before_action :require_permission, only: :edit
 
   def index
     # set permission that only the administrator can see the index
@@ -38,14 +39,11 @@ before_action :authenticate_user!
   end
 
   def edit
-    # @repair = Repair.all
-    @volunteer = Volunteer.find(params[:id])
-    @volunteer.user_id = current_user.id
+    @volunteer = current_user.volunteer
   end
 
   def update
-      @volunteer = Volunteer.find(params[:id])
-      @volunteer.user_id = current_user.id  #put this seperate because doesn't seem to work included as strong params
+      @volunteer = current_user.volunteer
       if @volunteer.update_attributes(volunteer_params)
         flash[:success] = "Volunteer updated!"
         redirect_to volunteer_path(@volunteer)
@@ -75,5 +73,12 @@ private
       params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
       :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
       :availability, :skill, :volunteer_notes)
+    end
+
+    def require_permission
+      if current_user != Volunteer.find(params[:id]).user
+        redirect_to root_path
+        flash[:success] = "You don't have permission to edit this volunteer"
+      end
     end
 end

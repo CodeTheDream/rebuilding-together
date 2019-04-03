@@ -7,8 +7,8 @@ class Volunteer < ApplicationRecord
   validate   :invalid_birthdate
 
   def invalid_birthdate
-    if birthdate.present? && birthdate > Date.today
-      errors.add(:birthdate, "can't be now or in future!")
+    if birthdate.present? && birthdate >= Date.today
+      errors.add(:birthdate, "can't be now or in future")
     end
   end
 end
