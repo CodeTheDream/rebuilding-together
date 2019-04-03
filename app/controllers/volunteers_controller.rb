@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class VolunteersController < ApplicationController
-    
+
 before_action :authenticate_user!
 
   def index
     # set permission that only the administrator can see the index
     # also set up function/action either here or in devise that when the user
         # first sign up for login credentials they're redirected to a creat your
-        # profile page. 
+        # profile page.
   # @repair = Repair.all
     @volunteer = Volunteer.all
   end
@@ -20,17 +20,18 @@ before_action :authenticate_user!
           redirect_to volunteer_path(current_user.volunteer.id)
     end
   end
-  
+
   def show
     @volunteer = current_user.volunteer
   end
-  
+
   def create
     # @repair = Repair.all
     @volunteer = Volunteer.new(volunteer_params)
     @volunteer.user_id = current_user.id
     if @volunteer.save
-          redirect_to volunteer_path(@volunteer.id)
+      flash[:success] = "Volunteer created!"
+      redirect_to volunteer_path(@volunteer)
     else
       render 'new'
     end
@@ -38,14 +39,19 @@ before_action :authenticate_user!
 
   def edit
     # @repair = Repair.all
-    @volunteer = Volunteer.find(current_user.id)
+    @volunteer = Volunteer.find(params[:id])
+    @volunteer.user_id = current_user.id
   end
 
   def update
-      volunteer = Volunteer.find(params[:id])
-      volunteer.update!(volunteer_params)
-      volunteer.user_id = current_user.id  #put this seperate because doesn't seem to work included as strong params
-      redirect_to volunteer_path(volunteer.id)
+      @volunteer = Volunteer.find(params[:id])
+      @volunteer.user_id = current_user.id  #put this seperate because doesn't seem to work included as strong params
+      if @volunteer.update_attributes(volunteer_params)
+        flash[:success] = "Volunteer updated!"
+        redirect_to volunteer_path(@volunteer)
+      else
+        render 'edit'
+      end
   end
 
   # def (action to view projects)
