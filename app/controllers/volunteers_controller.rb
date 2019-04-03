@@ -64,18 +64,19 @@ before_action :authenticate_user!
     # no longer available?
   end
   
-  def add_repair
+  def add_repairs
     @repairs = Repair.all
     # @repairs = Repair.find(params[:id])
     @volunteer = current_user.volunteer
   end
   
- def add_repair_volunteer
-   @repair = Repair.find(params[:id])
+ def add_repair_to_volunteer
+  # @repair = Repair.find(params[:id])
    volunteer_repair = VolunteerRepair.new
    volunteer_repair.volunteer_id = current_user.volunteer.id
    volunteer_repair.repair_id = params[:id]
    volunteer_repair.save
+   redirect_to add_repairs_volunteers_path
  end
 
 private

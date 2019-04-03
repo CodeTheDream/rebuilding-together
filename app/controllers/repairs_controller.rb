@@ -13,6 +13,7 @@ class RepairsController < ApplicationController
 
   def create
     @repairs = Repair.new(repair_params)
+    byebug
     @repairs.save
     redirect_to repairs_path
   end

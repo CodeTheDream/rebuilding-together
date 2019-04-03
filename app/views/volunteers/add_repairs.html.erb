@@ -4,14 +4,16 @@
 <% if VolunteerRepair.where('volunteer_id = ? AND repair_id = ?', @volunteer.id, repair.id).length == 0 %> 
     Repair Type: <%= repair.repair_type %><br/>
     Repair Notes: <%= repair.repair_notes %><br/>
-    <%= link_to 'Sign up for a repair', add_repair_volunteer_path(@repairs), method: :post %>`
+    <div>
+    <%= link_to 'Sign up for a repair', add_repair_to_volunteer_volunteer_path(repair.id), method: :post %>`
+    </div>
     <% end %>
 <% end %>
 
-
+<p>Everything Below I've sign up for</p>
 
 <% @volunteer.volunteer_repairs.each do |volunteer_repair| %>
-     Repair Type: <%= volunteer_repairs.repair.repair_type %><br/>
-    Repair Notes: <%= volunteer_repairs.repair.repair_notes %><br/>
+     Repair Type: <%= volunteer_repair.repair.repair_type %><br/>
+    Repair Notes: <%= volunteer_repair.repair.repair_notes %><br/>
 <% end %>
 
