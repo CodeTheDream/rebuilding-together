@@ -3,7 +3,6 @@
 class VolunteersController < ApplicationController
 
 before_action :authenticate_user!
-before_action :require_permission, only: :edit
 
   def index
     # set permission that only the administrator can see the index
@@ -75,10 +74,4 @@ private
       :availability, :skill, :volunteer_notes)
     end
 
-    def require_permission
-      if current_user != Volunteer.find(params[:id]).user
-        redirect_to root_path
-        flash[:success] = "You don't have permission to edit this volunteer"
-      end
-    end
 end
