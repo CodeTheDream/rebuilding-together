@@ -85,6 +85,14 @@ before_action :authenticate_user!
    @volunteer_repair.destroy
     redirect_to add_repairs_volunteers_path
  end
+ 
+ def submit
+    @volunteer_repair = VolunteerRepair.find(params[:id])
+    @volunteer_repair.volunteer_id = current_user.volunteer.id
+    @volunteer_repair.status = "Pending"
+    @volunteer_repair.save
+    redirect_to add_repairs_volunteers_path
+ end
 
 private
     def volunteer_params
