@@ -17,7 +17,7 @@ class OwnersController < ApplicationController
   def create
       @owner = current_user.build_owner(owner_params)
       if @owner.save
-        flash[:notice] = "Owner created"
+        flash[:success] = "Owner created"
         redirect_to @owner
       else
         render 'new'
@@ -32,7 +32,7 @@ class OwnersController < ApplicationController
 
   def update
     if @owner.update_attributes(owner_params)
-      flash[:notice] = "Owner updated"
+      flash[:success] = "Owner updated"
       redirect_to @owner
     else
       render 'edit'
