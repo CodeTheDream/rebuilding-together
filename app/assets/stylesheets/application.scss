@@ -53,3 +53,8 @@
 .container{
   background-color: #e9ecef;
 }
+
+label.required:after {
+    content: " *";
+    color: red;
+}
