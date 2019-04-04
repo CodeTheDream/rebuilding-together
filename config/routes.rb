@@ -10,6 +10,7 @@ Rails.application.routes.draw do
    member do 
      post "add_repair_to_volunteer"
      delete "remove_repair"
+     put "sumit"
     end
     collection do
       get "add_repairs"

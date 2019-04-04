@@ -1,5 +1,3 @@
-
-
 <% @repairs.each do |repair| %>
 <% if VolunteerRepair.where('volunteer_id = ? AND repair_id = ?', @volunteer.id, repair.id).length == 0 %> 
     Repair Type: <%= repair.repair_type %><br/>
@@ -9,11 +7,19 @@
     </div>
     <% end %>
 <% end %>
-
+<br/>
+<h2>
 <p>Everything Below I've sign up for</p>
+</h2>
 
 <% @volunteer.volunteer_repairs.each do |volunteer_repair| %>
+
      Repair Type: <%= volunteer_repair.repair.repair_type %><br/>
     Repair Notes: <%= volunteer_repair.repair.repair_notes %><br/>
+    <div>
+    <%= link_to 'Remove', remove_repair_volunteer_path(volunteer_repair.id), method: :delete %>`
+    <%= link_to 'Submit', sumit_volunteer_path(volunteer_repair.id), method: :put %>`
+
+    </div>
 <% end %>
 
