@@ -13,7 +13,7 @@ class RepairsController < ApplicationController
 
   def create
     @repairs = Repair.new(repair_params)
-    byebug
+    @repairs.owner_id = current_user.owner.id
     @repairs.save
     redirect_to repairs_path
   end
@@ -25,6 +25,7 @@ class RepairsController < ApplicationController
 
   def update
     @repairs = Repair.find(params[:id])
+    @repairs.owner_id = current_user.owner.id
     @repairs.update_attributes(repair_params)
     @repairs.save
     redirect_to repairs_path
