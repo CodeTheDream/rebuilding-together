@@ -75,6 +75,7 @@ before_action :authenticate_user!
    volunteer_repair = VolunteerRepair.new
    volunteer_repair.volunteer_id = current_user.volunteer.id
    volunteer_repair.repair_id = params[:id]
+  volunteer_repair.status = "open"
    volunteer_repair.save
    redirect_to add_repairs_volunteers_path
  end
