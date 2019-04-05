@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   devise_for :users
   resources :repairs
   resources :owners
-  
- resources :volunteers do
-   member do 
-     post "add_repair_to_volunteer"
-     delete "remove_repair"
+
+  resources :volunteers do
+    member do
+      post 'add_repair_to_volunteer'
+      delete 'remove_repair'
     end
     collection do
-      get "add_repairs"
+      get 'add_repairs'
     end
-   end
+  end
 end
