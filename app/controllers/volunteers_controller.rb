@@ -68,8 +68,7 @@ before_action :authenticate_user!
   end
   
   def add_repairs
-    @repairs = Repair.all
-    # @repairs = Repair.find(params[:id])
+    @repair = Repair.all
     @volunteer = current_user.volunteer
   end
   
