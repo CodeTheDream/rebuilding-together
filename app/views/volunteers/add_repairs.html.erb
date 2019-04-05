@@ -15,21 +15,14 @@
 <% @volunteer.volunteer_repairs.each do |volunteer_repair| %>
      Repair Type: <%= volunteer_repair.repair.repair_type %><br/>
     Repair Notes: <%= volunteer_repair.repair.repair_notes %><br/>
+    <%= volunteer_repair.status %>
+
     <div>
     <%= link_to 'Remove', remove_repair_volunteer_path(volunteer_repair.id), method: :delete %>`|
-    <%= link_to 'Submit', submit_volunteer_path(volunteer_repair.id), method: :put %>`
     </div>
 <% end %>
 
-<h1>Submitted</h1>
-
-<% @volunteer.volunteer_repairs.each do |volunteer_repair| %>
-Repair Type: <%= volunteer_repair.repair.repair_type %><br/>
-    Repair Notes: <%= volunteer_repair.repair.repair_notes %><br/>
-<%= volunteer_repair.status %>
-
-<% end %>
-
+<
 
 
 

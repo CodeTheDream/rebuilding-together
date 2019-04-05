@@ -69,31 +69,31 @@ before_action :authenticate_user!
   
   def add_repairs
     @repair = Repair.all
+    if current_user == nil 
+      redirect_to new_volunteer_path	
+    else
     @volunteer = current_user.volunteer
   end
+end
   
  def add_repair_to_volunteer
   # @repair = Repair.find(params[:id])
    volunteer_repair = VolunteerRepair.new
+   if current_user == nil
+     redirect_to new_volunteer_path	
+   else
    volunteer_repair.volunteer_id = current_user.volunteer.id
    volunteer_repair.repair_id = params[:id]
-  volunteer_repair.status = "open"
+  volunteer_repair.status = "Pending"
    volunteer_repair.save
    redirect_to add_repairs_volunteers_path
+  end
  end
  
  def remove_repair
    @volunteer_repair = VolunteerRepair.find(params[:id])
     @volunteer_repair.volunteer_id = current_user.volunteer.id
    @volunteer_repair.destroy
-    redirect_to add_repairs_volunteers_path
- end
- 
- def submit
-    @volunteer_repair = VolunteerRepair.find(params[:id])
-    @volunteer_repair.volunteer_id = current_user.volunteer.id
-    @volunteer_repair.status = "Pending"
-    @volunteer_repair.save
     redirect_to add_repairs_volunteers_path
  end
 
