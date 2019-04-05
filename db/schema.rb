@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_04_02_134031) do
-=======
 ActiveRecord::Schema.define(version: 2019_04_02_202401) do
->>>>>>> master
 
   create_table "owners", force: :cascade do |t|
     t.integer "user_id"

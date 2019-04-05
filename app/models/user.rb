@@ -13,5 +13,4 @@ class User < ApplicationRecord
 
   has_one :volunteer
   has_one :owner
-  has_many :repair
 end
