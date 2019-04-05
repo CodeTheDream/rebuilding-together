@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'add_repairs'
+      get 'show'
     end
   end
 end
