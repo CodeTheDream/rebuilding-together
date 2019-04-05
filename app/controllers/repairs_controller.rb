@@ -4,36 +4,36 @@
 class RepairsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @repairs = Repair.all
+    @repair = Repair.all
   end
 
   def new
-    @repairs = Repair.new
+    @repair = Repair.new
   end
 
   def create
-    @repairs = Repair.new(repair_params)
-    @repairs.owner_id = current_user.owner.id
-    @repairs.save
+    @repair = Repair.new(repair_params)
+    @repair.owner_id = current_user.owner.id
+    @repair.save
     redirect_to repairs_path
   end
 
   def edit
-    @repairs = Repair.find(params[:id])
+    @repair = Repair.find(params[:id])
     
   end
 
   def update
-    @repairs = Repair.find(params[:id])
-    @repairs.owner_id = current_user.owner.id
-    @repairs.update_attributes(repair_params)
-    @repairs.save
+    @repair = Repair.find(params[:id])
+    @repair.owner_id = current_user.owner.id
+    @repair.update_attributes(repair_params)
+    @repair.save
     redirect_to repairs_path
   end
 
   def destroy
-    @repairs = Repair.find(params[:id])
-    @repairs.destroy
+    @repair = Repair.find(params[:id])
+    @repair.destroy
     redirect_to repairs_path
   end
 end
