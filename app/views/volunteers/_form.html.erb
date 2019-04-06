@@ -1,4 +1,5 @@
 <%= form_for @volunteer do |f| %>
+<%= render 'shared/error_messages', object: f.object%>
   <h4>Basic Information</h4>
     <div class="form-group">
       <%= f.label :picture, "Volunteer Photo:" %>
@@ -11,33 +12,33 @@
         
     <div class="form-group row">
       <div class="col-md-6">
-        <%= f.label :first_name, "First Name:" %>
+        <%= f.label :first_name, "First Name:", class: "required" %>
         <%= f.text_field :first_name, class: "form-control" %> 
       </div>
       <div class="col-md-6">
-        <%= f.label :last_name, "Last Name:"%>
+        <%= f.label :last_name, "Last Name:", class: "required"%>
         <%= f.text_field :last_name, class: "form-control" %> 
       </div>
     </div>
         
     <div class="form-group row">
       <div class="col-md-6">
-        <%= f.label :email, "Email:"%>   
+        <%= f.label :email, "Email:", class: "required"%>   
         <%= f.text_field :email, class: "form-control" %>
       </div>
       <div class="col-md-6">
-        <%= f.label :mobile_phone, "Phone:"%>
+        <%= f.label :mobile_phone, "Phone:", class: "required"%>
         <%= f.telephone_field :mobile_phone, class: "form-control" %> 
       </div>
     </div>
         
     <div class="form-group row">
       <div class="col-md-6">
-        <%= f.label :city, "City:" %>
+        <%= f.label :city, "City:", class: "required" %>
         <%= f.text_field :city, class: "form-control" %>
       </div>
       <div class="col-md-6">
-        <%= f.label :state, "State:" %>
+        <%= f.label :state, "State:", class: "required" %>
         <%= f.text_field :state, class: "form-control" %>
       </div>
     </div>
@@ -45,22 +46,22 @@
   <h4>Personal Information</h4>
     <div class="form-group row">
       <div class="col-md-6">
-        <%= f.label :birthdate, "Birthdate:" %>
+        <%= f.label :birthdate, "Birthdate:", class: "required" %>
         <%= f.date_field :birthdate, class: "form-control" %>
       </div>
       <div class="col-md-6">
-        <%= f.label :gender, "Gender: To which gender identity do you most identify with?"%>
+        <%= f.label :gender, "Gender: To which gender identity do you most identify with?", class: "required"%>
         <%= f.select(:gender, options_for_select(['Female', 'Male', 'Other', 'Prefer Not to Answer'])) %>
       </div>
     </div>
         
     <div class="form-group row">
       <div class="col-md-6">
-        <%= f.label :employer, "Employer:" %>
+        <%= f.label :employer, "Employer:", class: "required" %>
         <%= f.text_field :employer, class: "form-control" %>
       </div>
       <div class="col-md-6">
-        <%= f.label :position, "Position:"%>
+        <%= f.label :position, "Position:", class: "required"%>
         <%= f.text_field :position, class: "form-control" %>
       </div>
     </div>
@@ -93,7 +94,7 @@
       </div>
     </div>
     
-    <%= f.label :skill, "List your volunteer skills and interests." %>
+    <%= f.label :skill, "List your volunteer skills and interests.", class: "required" %>
     <%= f.text_field :skill, class: "form-control" %>
     
     <%= f.label :volunteer_notes, "Notes regarding my skills and availability:"%>

@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <h1><%= @owner.full_name%></h1>
+    <p>
+    <strong>Address:</strong>
+    <%= @owner.full_address %>
+    </p>
+
+    <p>
+    <strong>Phone:</strong>
+    <%= @owner.phone %>
+    </p>
+
+    <!-- <p>
+    <strong>Email:</strong>
+    < @owner.email %>
+    </p> -->
+
+    <p>
+    <strong>Years at home:</strong>
+    <%= @owner.year %>
+    </p>
+
+    <p>
+    <strong>Emergency Contact:</strong>
+    <%= @owner.em_contact_name %>
+    </p>
+
+    <p>
+    <strong>Emergency Phone:</strong>
+    <%= @owner.em_contact_phone %>
+    </p>
+
+    <p>
+    <strong>Emergency Contact Relationship:</strong>
+    <%= @owner.em_contact_relationship %>
+    </p>
+
+    <p>
+    <strong>Language:</strong>
+    <%= @owner.language %>
+    </p>
+
+    <p>
+    <strong>How did you hear about?</strong>
+    <%= @owner.howd_you_hear %>
+    </p>
+
+
+    <%= link_to "Edit", edit_owner_path(@owner)%>
+    <%= link_to "Delete", @owner, method: :delete, data: { confirm: "Are you sure?" }%><br>
+
+    <%= link_to "Back to owners", owners_path, class: "btn btn-info btn-sm"%>
+    <%= link_to "Request a repair", repairs_path, class: "btn btn-info btn-sm"%>
+
+  </div>
+</div>

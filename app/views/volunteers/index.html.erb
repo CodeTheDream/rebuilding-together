@@ -60,5 +60,8 @@
 </div>
 <br>
 <div>
+<!--Will style into nav bar with next commit. -->
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+<%= link_to "Create Volunteer", new_volunteer_path %>
 <%= render 'footer' %>
 </div>

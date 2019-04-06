@@ -1,0 +1,36 @@
+// Place all the styles related to the Owners controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#owner_year{
+  height: 32px;
+  width: 100%;
+  border: 1px solid #ced4da;
+}
+
+#owner_language{
+  height: 32px;
+  width: 100%;
+  border: 1px solid #ced4da;
+}
+
+#owner_em_contact_relationship{
+  height: 32px;
+  width: 100%;
+  border: 1px solid #ced4da;
+}
+
+#owner_howd_you_hear{
+  height: 32px;
+  width: 100%;
+  border: 1px solid #ced4da;
+}
+
+.container{
+  background-color: #e9ecef;
+}
+
+label.required:after {
+    content: " *";
+    color: red;
+}
