@@ -1,38 +1,67 @@
-<!--Include links to view volunteers, view homes, search or sort volunteers/homes-->
-<div>
-    <h1>Volunteers</h1>
-    <h2>Welcome Rebuilding Together of the Triangle Staff!</h2>
-    <h3>Below is a list of your volunteers.</h3>
+<div class="row banner">
+  <div class="col-4 logo">
+    <img src='http://rebuildingtogethertriangle.force.com//servlet/servlet.FileDownload?file=0150V00000Cw36U' height=100px>
+  </div>
+  <div class="col title">
+    <h1>Staff Portal</h1>
+  </div>
 </div>
 
-<% @volunteer.each do |volunteer| %>
-<div>
-    <div>
-        <img src="<%= volunteer.picture %>" height=50px>
-        <h5>Name:</h5> <p><%= volunteer.first_name %> <%= volunteer.last_name %></p>
-        <h5>Email:</h5> <p><%= volunteer.email %></p>
-        <h5>Phone:</h5> <p><%= volunteer.mobile_phone %></p>
-        <h5>Location:</h5> <p><%= volunteer.city %>, <%= volunteer.state %> </h5>
-    </div>
-    <div>
-        <h4>Volunteer's Personal Information</h4>
-    </div>
-    <div>
-        <h5>Birthdate:</h5> <p><%= volunteer.birthdate %></p>
-        <h5>Gender:</h5> <p><%= volunteer.gender %></p>
-        <h5>Employer:</h5> <p><%= volunteer.employer %></p>
-        <h5>Position:</h5> <p><%= volunteer.position %></p>
-    </div>
-    <div>
-        <h5>Availability:</h5> <p><%= volunteer.availability %></p>
-        <h5>Volunteer's Skills:</h5><p><%= volunteer.skill %></p>
-        <h5>Notes regarding volunteer's skills and availability:</h5>
-        <p><%= volunteer.volunteer_notes %></p>
-    </div>
-</div>
+<!--Include nav bard for links to view volunteers, view homes, search or sort volunteers/homes-->
 
+<div class="index-body">
+  <div>
+    <h2 class="center">VOLUNTEERS</h2> <br>
+    <h4 class="center">Welcome Rebuilding Together of the Triangle Staff!</h4>
+    <h4 class="center">Below is a list of your volunteers.</h4>
+  </div>
+
+  <% @volunteer.each do |volunteer| %>
+  <div class="card_padding">    
+    <div class="card lg-12" style="max-width: 100%;">
+      <div class="row no-gutters">
+        <div class="col-2">
+          <% if volunteer.picture? %>
+            <%= image_tag volunteer.picture.url, class:"picture" %>
+          <% else %>
+            <%= image_tag "http://turnersrepair.com/wp-content/uploads/2018/06/profile-clipart-generic-user-7-1.png", class:"pic-placeholder" %>
+          <% end %>
+          <br><br>
+          <h5><%= volunteer.first_name %> <%= volunteer.last_name %></h5>
+          <h6><i><%= volunteer.city %>, <%= volunteer.state %></i></h6>
+        </div>
+        <div class="col-3">
+          <p class="card_title"><strong>Contact Info</strong></p>
+          <p><strong>Email:</strong> <%= volunteer.email %></p>
+          <p><strong>Phone:</strong> <%= volunteer.mobile_phone %></p>
+          <p><strong>Location:</strong> <%= volunteer.city %>, <%= volunteer.state %></p>
+        </div>
+  
+        <div class="col-3">
+          <p class="card_title"><strong>Personal Info</strong></p>
+          <p><strong>Gender:</strong> <%= volunteer.gender %></p>
+          <p><strong>Birthdate:</strong> <%= volunteer.birthdate %></p>
+          <p><strong>Employer:</strong> <%= volunteer.employer %></p>
+          <p><strong>Position:</strong> <%= volunteer.position %></p>
+        </div>
+      
+        <div class="col-4">
+          <p class="card_title"><strong>Availability & Skills</strong></p>
+          <p><strong>Availability:</strong> <%= volunteer.availability %></p>
+          <p><strong>Volunteer's Skills:</strong> <%= volunteer.skill %></p>
+          <p><strong>Notes regarding volunteer's availability and skills:</strong> <%= volunteer.volunteer_notes %></p>
+        </div>
+      </div>
+    </div>
+   </div>
 <% end %>
+<br>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-dark" %>
+</div>
+<br>
 <div>
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |
-    <%= link_to "Create Volunteer", new_volunteer_path %>
+<!--Will style into nav bar with next commit. -->
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+<%= link_to "Create Volunteer", new_volunteer_path %>
+<%= render 'footer' %>
 </div>

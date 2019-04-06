@@ -38,6 +38,7 @@ before_action :authenticate_user!
   end
 
   def edit
+    # @repair = Repair.all
     @volunteer = current_user.volunteer
   end
 
@@ -51,6 +52,12 @@ before_action :authenticate_user!
       end
   end
 
+  def destroy
+    volunteer = Volunteer.find(params[:id])
+    volunteer.destroy
+    redirect_to volunteer_path(volunteer.id)
+  end
+  
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
