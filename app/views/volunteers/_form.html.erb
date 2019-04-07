@@ -71,51 +71,30 @@
   <!-- style to make multiple checkbox options and style into columns -->
     <div class="form-group row">
       <div class="col-md-6">
-        <%#<%= f.check_box :availability %>
-        <%#<%= f.check_box :sundayam %><br>
-        <%#<%= f.label :sundayam, 'Sunday' %> <br>
-
-        <%= check_box("volunteer", "sundayam",{},"Sunday Mornings", nil) %><br>
-        <%= check_box("volunteer", "mondayam",{},"Monday Mornings", nil) %><br>
-
-        <%#<%= check_box("volunteer", "sundayam", {:multiple => 'true' }, "mondayam", nil) %><br>
-        <%#<%= check_box("volunteer", "sundayam", {:multiple => 'true' }, "tuesdayam", nil) %><br>
-
-
-        
-<!--        check_box("puppy", "commands", {:multiple => true}, "sit", nil)-->
-<!--check_box("puppy", "commands", {:multiple => true}, "fetch", nil)-->
-<!--check_box("puppy", "commands", {:multiple => true}, "roll_over", nil)-->
-        
-        <%= f.check_box :availability %>
-        <%= f.label :availability, 'Monday' %> <br>
-                
-        <%= f.radio_button :availability, 'Tuesday' %>
-        <%= f.label :availability, 'Tuesday' %> <br>    
-         
-        <%= f.radio_button :availability, 'Wednesday' %>
-        <%= f.label :availability, 'Wednesday' %> <br>
-
-        <%= f.radio_button :availability, 'Thursday' %>               
-        <%= f.label :availability, 'Thursday' %> <br>
-            
-        <%= f.radio_button :availability, 'Friday' %>
-        <%= f.label :availability, 'Friday' %> <br>
-
-        <%= f.radio_button :availability, 'Saturday' %>
-        <%= f.label :availability, 'Saturday' %>
-      </div>
-    </div>
-    
-    <%= f.label :skill, "List your volunteer skills and interests.", class: "required" %>
-    <%= f.text_field :skill, class: "form-control" %>
+        <%= check_box("volunteer", "avail_sun_am",{},"Sunday Mornings", nil) %><br>
+        <%= check_box("volunteer", "avail_sun_pm",{},"Sunday Afternoons", nil) %><br>
+        <%= check_box("volunteer", "avail_mon_am",{},"Monday Mornings", nil) %><br>
+        <%= check_box("volunteer", "avail_mon_pm",{},"Monday Afternoons", nil) %><br>
+        <%= check_box("volunteer", "avail_tue_am",{},"Tuesday Mornings", nil) %><br>
+        <%= check_box("volunteer", "avail_tue_pm",{},"Tuesday Afternoons", nil) %><br>
+        <%= check_box("volunteer", "avail_wed_am",{},"Wednesday Mornings", nil) %><br>
+        <%= check_box("volunteer", "avail_wed_pm",{},"Wednesday Afternoons", nil) %><br>
+        <%= check_box("volunteer", "avail_thr_am",{},"Thursday Mornings", nil) %><br>
+        <%= check_box("volunteer", "avail_thr_pm",{},"Thursday Afternoons", nil) %><br>
+        <%= check_box("volunteer", "avail_fri_am",{},"Friday Mornings", nil) %><br>
+        <%= check_box("volunteer", "avail_fri_pm",{},"Friday Afternoons", nil) %><br>
+        <%= check_box("volunteer", "avail_sat_am",{},"Saturday Mornings", nil) %><br>
+        <%= check_box("volunteer", "avail_sat_pm",{},"Saturday Afternoons", nil) %><br>
+  
+        <%= f.label :skill, "List your volunteer skills and interests.", class: "required" %>
+        <%= f.text_field :skill, class: "form-control" %>
     
     <%= f.label :volunteer_notes, "Notes regarding my skills and availability:"%>
     <%= f.text_area :volunteer_notes, cols: 100, rows: 3, class: "form-control" %>
-    
+    </div>
+    </div>  
 <!-- Add optionfor volunteer to select from repairs, drop box -->
 <!--<%# select_tag 'repair_id', options_from_collection_for_select(@repair, :id, :type) %>-->
     <br>
     <%= f.submit "Save", class: "btn btn-dark"%>
-    
 <% end %>
