@@ -71,10 +71,23 @@
   <!-- style to make multiple checkbox options and style into columns -->
     <div class="form-group row">
       <div class="col-md-6">
-        <%= f.radio_button :availability, 'Sunday' %>
-        <%= f.label :availability, 'Sunday' %> <br>
+        <%#<%= f.check_box :availability %>
+        <%#<%= f.check_box :sundayam %><br>
+        <%#<%= f.label :sundayam, 'Sunday' %> <br>
 
-        <%= f.radio_button :availability, 'Monday' %>
+        <%= check_box("volunteer", "sundayam",{},"Sunday Mornings", nil) %><br>
+        <%= check_box("volunteer", "mondayam",{},"Monday Mornings", nil) %><br>
+
+        <%#<%= check_box("volunteer", "sundayam", {:multiple => 'true' }, "mondayam", nil) %><br>
+        <%#<%= check_box("volunteer", "sundayam", {:multiple => 'true' }, "tuesdayam", nil) %><br>
+
+
+        
+<!--        check_box("puppy", "commands", {:multiple => true}, "sit", nil)-->
+<!--check_box("puppy", "commands", {:multiple => true}, "fetch", nil)-->
+<!--check_box("puppy", "commands", {:multiple => true}, "roll_over", nil)-->
+        
+        <%= f.check_box :availability %>
         <%= f.label :availability, 'Monday' %> <br>
                 
         <%= f.radio_button :availability, 'Tuesday' %>
