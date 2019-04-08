@@ -99,7 +99,7 @@
         <p>Mornings</p>
       </div>
       <div class="col checkbox">
-        <%= f.check_box(:avail_sun_am,{},"Sunday Mornings", nil) %>
+        <%= f.check_box(:avail_sun_am[],checked("Sunday Mornings"), id: 'volunteer_avail_sun_am') %>
       </div>
       <div class="col checkbox">
         <%= f.check_box(:avail_mon_am,{},"Monday Mornings", nil) %>
