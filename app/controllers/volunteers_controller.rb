@@ -78,7 +78,10 @@ private
     def volunteer_params
       params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
       :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-      :availability, :skill, :volunteer_notes)
+      :avail_sun_am, :avail_sun_pm, :avail_mon_am, :avail_mon_pm, :avail_tue_am,
+      :avail_tue_pm, :avail_wed_am, :avail_wed_pm, :avail_thr_am, :avail_thr_pm,
+      :avail_fri_am, :avail_fri_pm, :avail_sat_am, :avail_sat_pm, :skill,
+      :volunteer_notes)
     end
 
 end
