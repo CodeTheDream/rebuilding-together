@@ -8,8 +8,9 @@ after_action  :verify_authorized
   def index
     # set permission that only the administrator can see the index
     # also set up function/action either here or in devise that when the user
-        # first sign up for login credentials they're redirected to a creat your
-        # profile page.
+    # first sign up for login credentials they're redirected to a creat your
+    # profile page.
+    # @repair = Repair.all
     @volunteer = Volunteer.all
     authorize Volunteer
   end
@@ -79,11 +80,41 @@ after_action  :verify_authorized
     # no longer available?
   end
 
-private
-    def volunteer_params
-      params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
-      :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-      :availability, :skill, :volunteer_notes)
-    end
+  def add_repairs
+    @repair = Repair.all
+    if current_user.nil?
+      redirect_to new_volunteers_path
+    else
+      @volunteer = current_user.volunteer
+  end
+  end
 
+  def add_repair_to_volunteer
+    # @repair = Repair.find(params[:id])
+    volunteer_repair = VolunteerRepair.new
+    if current_user.volunteer.nil?
+      redirect_to new_volunteer_path
+    else
+      volunteer_repair.volunteer_id = current_user.volunteer.id
+      volunteer_repair.repair_id = params[:id]
+      volunteer_repair.status = 'Pending'
+      volunteer_repair.save
+      redirect_to add_repairs_volunteers_path
+   end
+  end
+
+  def remove_repair
+    @volunteer_repair = VolunteerRepair.find(params[:id])
+    @volunteer_repair.volunteer_id = current_user.volunteer.id
+    @volunteer_repair.destroy
+    redirect_to add_repairs_volunteers_path
+  end
+
+  private
+
+  def volunteer_params
+    params.require(:volunteer).permit(:picture, :first_name, :last_name, :email,
+                                      :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
+                                      :availability, :skill, :volunteer_notes)
+  end
 end
