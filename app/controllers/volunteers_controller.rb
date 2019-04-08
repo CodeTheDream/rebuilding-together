@@ -76,7 +76,7 @@ class VolunteersController < ApplicationController
   def add_repairs
     @repair = Repair.all
     if current_user.nil?
-      redirect_to new_volunteer_path
+      redirect_to new_volunteers_path
     else
       @volunteer = current_user.volunteer
   end
