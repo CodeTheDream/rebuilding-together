@@ -3,61 +3,66 @@
 class VolunteersController < ApplicationController
 
 before_action :authenticate_user!
+after_action  :verify_authorized
 
   def index
     # set permission that only the administrator can see the index
     # also set up function/action either here or in devise that when the user
         # first sign up for login credentials they're redirected to a creat your
         # profile page.
-  # @repair = Repair.all
     @volunteer = Volunteer.all
+    authorize Volunteer
   end
 
   def new
-  # @repair = Repair.all
-    @volunteer = Volunteer.new
-    if current_user.volunteer != nil
-          redirect_to volunteer_path(current_user.volunteer.id)
-    end
-  end
-
-  def show
-    @volunteer = current_user.volunteer
+    @volunteer = current_user.build_volunteer
+    authorize @volunteer
   end
 
   def create
-    # @repair = Repair.all
-    @volunteer = Volunteer.new(volunteer_params)
-    @volunteer.user_id = current_user.id
+    @volunteer = current_user.build_volunteer(volunteer_params)
+    authorize @volunteer
     if @volunteer.save
-      flash[:success] = "Volunteer created!"
+      flash[:success] = "Volunteer created."
       redirect_to volunteer_path(@volunteer)
     else
       render 'new'
     end
   end
 
+  def show
+    @volunteer = current_user.volunteer unless current_user.admin?
+    @volunteer = Volunteer.find(params[:id])
+    authorize @volunteer
+  end
+
   def edit
-    # @repair = Repair.all
-    @volunteer = current_user.volunteer
+    @volunteer = current_user.volunteer unless current_user.admin?
+    @volunteer = Volunteer.find(params[:id])
+    authorize @volunteer
   end
 
   def update
-      @volunteer = current_user.volunteer
-      if @volunteer.update_attributes(volunteer_params)
-        flash[:success] = "Volunteer updated!"
-        redirect_to volunteer_path(@volunteer)
-      else
-        render 'edit'
-      end
+    @volunteer = current_user.volunteer unless current_user.admin?
+    @volunteer = Volunteer.find(params[:id])
+    authorize @volunteer
+
+    if @volunteer.update_attributes(volunteer_params)
+      flash[:success] = "Volunteer updated."
+      redirect_to volunteer_path(@volunteer)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    volunteer = Volunteer.find(params[:id])
-    volunteer.destroy
-    redirect_to volunteer_path(volunteer.id)
+    @volunteer = Volunteer.find(params[:id])
+    authorize @volunteer
+    @volunteer.destroy
+    flash[:success] = "Volunteer deleted."
+    redirect_to volunteers_path
   end
-  
+
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
