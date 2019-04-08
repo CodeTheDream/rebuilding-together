@@ -8,6 +8,7 @@ ruby '2.4.0'
 gem 'devise'
 gem 'pundit'
 gem 'rubocop', require: false
+gem 'bootstrap', '~> 4.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
@@ -40,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap-sass', '~> 3.4.1'
+# gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'sassc-rails', '>= 2.1.0'
 
