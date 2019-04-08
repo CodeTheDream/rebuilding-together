@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Owner < ApplicationRecord
   before_save :upcase_fields
   belongs_to :user
   has_many   :repairs
   validates  :first_name, :last_name, presence: true, length: { maximum: 25 }
   validates  :address, :city, :state, :zip, presence: true
-  validates  :year, inclusion: { in: "1".."30" }
+  validates  :year, inclusion: { in: '1'..'30' }
   validates  :phone, :em_contact_name, :em_contact_phone, :em_contact_relationship, presence: true
 
   def upcase_fields
@@ -23,5 +25,4 @@ class Owner < ApplicationRecord
   def short_address
     [city, state].compact.join(', ') unless city.blank? && state.blank?
   end
-
 end
