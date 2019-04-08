@@ -8,30 +8,34 @@ class RepairsController < ApplicationController
   end
 
   def new
-    @repairs = Repair.new
+    @repair = Repair.new
   end
 
   def create
-    @repairs = Repair.new(repair_params)
-    @repairs.save
-    redirect_to repairs_path
+    @repair = Repair.new(repair_params)
+    if current_user.owner.nil?
+      redirect_to new_owner_path
+    else
+      @repair.owner_id = current_user.owner.id
+      @repair.save
+      redirect_to repairs_path
   end
+end
 
   def edit
-    @repairs = Repair.find(params[:id])
-    
+    @repair = Repair.find(params[:id])
   end
 
   def update
-    @repairs = Repair.find(params[:id])
-    @repairs.update_attributes(repair_params)
-    @repairs.save
+    @repair = Repair.find(params[:id])
+    @repair.update_attributes(repair_params)
+    @repair.save
     redirect_to repairs_path
   end
 
   def destroy
-    @repairs = Repair.find(params[:id])
-    @repairs.destroy
+    @repair = Repair.find(params[:id])
+    @repair.destroy
     redirect_to repairs_path
   end
 end
