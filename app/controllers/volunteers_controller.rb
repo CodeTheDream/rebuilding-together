@@ -85,7 +85,7 @@ class VolunteersController < ApplicationController
   def add_repair_to_volunteer
     # @repair = Repair.find(params[:id])
     volunteer_repair = VolunteerRepair.new
-    if current_user.nil?
+    if current_user.onwer.nil?
       redirect_to new_volunteer_path
     else
       volunteer_repair.volunteer_id = current_user.volunteer.id
