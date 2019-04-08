@@ -5,6 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.0'
 
+gem 'carrierwave', '~> 0.11.2'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'pundit'
 gem 'rubocop', require: false
@@ -42,8 +45,13 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'bootstrap-sass', '~> 3.4.1'
+<<<<<<< HEAD
 gem 'jquery-rails'
 gem 'sassc-rails', '>= 2.1.0'
+=======
+gem 'sassc-rails', '>= 2.1.0'
+# gem 'jquery-rails'
+>>>>>>> master
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -71,3 +79,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+

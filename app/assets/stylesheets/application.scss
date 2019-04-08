@@ -12,7 +12,9 @@
  *
  */
 // @import "bootstrap-sprockets";
+
 @import "bootstrap";
+@import "*";
 
 .nav.navbar-nav.navbar-right li a {
     color: blue;
@@ -78,3 +80,4 @@ label.required:after {
     background-color:rgb(242, 242, 242);
 
 }
+
