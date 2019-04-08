@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class VolunteersController < ApplicationController
-
 before_action :authenticate_user!
 after_action  :verify_authorized
+
 
   def index
     # set permission that only the administrator can see the index
@@ -18,8 +18,8 @@ after_action  :verify_authorized
   def new
     @volunteer = current_user.build_volunteer
     authorize @volunteer
-  end
-
+  end 
+  
   def create
     @volunteer = current_user.build_volunteer(volunteer_params)
     authorize @volunteer
@@ -86,8 +86,9 @@ after_action  :verify_authorized
       redirect_to new_volunteers_path
     else
       @volunteer = current_user.volunteer
+    end
   end
-  end
+
 
   def add_repair_to_volunteer
     # @repair = Repair.find(params[:id])
@@ -100,7 +101,7 @@ after_action  :verify_authorized
       volunteer_repair.status = 'Pending'
       volunteer_repair.save
       redirect_to add_repairs_volunteers_path
-   end
+    end
   end
 
   def remove_repair
