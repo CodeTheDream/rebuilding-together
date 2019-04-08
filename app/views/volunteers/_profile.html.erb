@@ -1,38 +1,54 @@
-<div>
-    <div>
-        <h4>My Profile</h4>
+<div class='profile-body'>
+
+  <h4>My Profile</h4>
+    
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-4">
+          <% if @volunteer.picture? %>
+            <%= image_tag @volunteer.picture.url, class: "picture" %>
+          <% else %>
+            <%= image_tag "http://turnersrepair.com/wp-content/uploads/2018/06/profile-clipart-generic-user-7-1.png", class:"pic-placeholder" %>
+          <% end %>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          <p><strong>Name:</strong> <%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
+          <p><strong>Email:</strong> <%= @volunteer.email %></p>
+          <p><strong>Phone:</strong> <%= @volunteer.mobile_phone %></p>
+          <p><strong>Location:</strong> <%= @volunteer.city %>, <%= @volunteer.state %></p>
+        </div>
+      </div>
     </div>
-    <div>
-        <img src="<%= @volunteer.picture %>" height=50px>
-        <h5>Name:</h5> <p><%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
-        <h5>Email:</h5> <p><%= @volunteer.email %></p>
-        <h5>Phone:</h5> <p><%= @volunteer.mobile_phone %></p>
-        <h5>Location:</h5> <p><%= @volunteer.city %>, <%= @volunteer.state %> </h5>
+            
+  <h4>Personal Information</h4>
+    
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <p><strong>Gender:</strong> <%= @volunteer.gender %></p>
+          <p><strong>Birthdate:</strong> <%= @volunteer.birthdate %></p>
+          <p><strong>Employer:</strong> <%= @volunteer.employer %></p>
+          <p><strong>Position:</strong> <%= @volunteer.position %></p>
+        </div>
+      </div>
     </div>
-    <div>
-        <h4>Personal Information</h4>
-    </div>
-    <div>
-        <h5>Birthdate:</h5> <p><%= @volunteer.birthdate %></p>
-        <h5>Gender:</h5> <p><%= @volunteer.gender %></p>
-        <h5>Employer:</h5> <p><%= @volunteer.employer %></p>
-        <h5>Position:</h5> <p><%= @volunteer.position %></p>
-    </div>
-    <div>
-        <h5>Availability:</h5> <p><%= @volunteer.availability %></p>
-        <h5>My Skills:</h5><p><%= @volunteer.skill %></p>
-        <h5>Notes regarding my skills and availability:</h5>
-        <p><%= @volunteer.volunteer_notes %></p>
-    </div>
-    <div>
-       <%= link_to 'Edit Profile', edit_volunteer_path(@volunteer) %>
-        <!-- Do we want to add a link to delete a profile? Or ask them to submit a request to delete the profile to the administrator -->
-    </div>
+    
+  <h4>Skills/Interests & Availability</h4>
+    
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <p><strong>Availability:</strong> <%= @volunteer.availability %></p>
+          <p><strong>My Skills:</strong> <%= @volunteer.skill %></p>
+          <p><strong>Notes regarding my skills and availability:</strong> <%= @volunteer.volunteer_notes %></p>
+        </div>
+      </div>
     <%= link_to 'Sign up for a repair', add_repairs_volunteers_path %>
     <div>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
     </div>
-</div>
+ </div>
 
 <%#<div>
     Show upcoming homes needing help, where volunteers can sign up for, based on skills they select. 

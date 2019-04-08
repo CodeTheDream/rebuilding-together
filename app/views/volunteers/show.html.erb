@@ -1,7 +1,29 @@
 <% if @volunteer == nil %>
-    <!--Add more content and styling here...-->
-    <%= link_to 'Create Profile', new_volunteer_path %>
+  <%= render 'banner' %>
+  <div class="show-body">
+    <div class="row">
+      <div class="col-7">
+        <img src="https://www.rodgersbuilders.com/wp-content/uploads/Rebuilding_13.jpg" width=100%>
+      </div>
+      <div class="col-5">
+        <div class="card-body">
+          <h2 class="center">Individual Volunteer Opportunities</h2> <br>
+          <p>Rebuilding safe and healthy homes is made possible thanks to donations, corporate sponsorships and volunteer support. 
+             Opportunities are available to get involved for both groups and individuals.</p>
+          <p>We welcome individuals who want to volunteer on worksites or in the office.</p>
+          <h6>To get started, please create a new volunteer profile by clicking the link below.</h6>
+          <h6 class="center"> <%= link_to 'Create Volunteer Profile', new_volunteer_path %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <% else %>
+  <div class='fixed-top'>
+    <%= render 'banner' %>
+    <%= render 'navbar' %>
+  </div>
     <%= render 'profile' %>
 <% end %>
-
+<br>
+<%= render 'footer' %>

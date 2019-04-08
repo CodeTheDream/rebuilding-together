@@ -1,3 +1,96 @@
 // Place all the styles related to the Volunteers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.banner {
+    background: #7ac043;
+}
+
+
+.logo {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+
+.title {
+    color: white;
+    margin-top: 50px;
+    font-family: verdana;
+}
+
+
+.footer_title {
+    color: white;
+    font-family: verdana;
+    text-align: center;
+}
+
+
+h4 {
+    color: #7ac043;
+}
+
+
+.picture {
+    width: 75%;
+    height: auto;
+}
+
+
+.pic-placeholder {
+    width: 100px;
+    height: 100px;
+}
+
+
+.center {
+    text-align: center;
+}
+
+
+.card_title {
+    color: #7ac043;
+}
+
+
+.card_padding {
+    padding: 10px;
+}
+
+
+.index-body {
+    margin-top: 60px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+
+.profile-body {
+    margin-top: 225px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+
+.body {
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+
+.show-body {
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+//Added this to stop the horizontal scrolling
+body {
+    width: 100%;
+    overflow-x: hidden;
+}

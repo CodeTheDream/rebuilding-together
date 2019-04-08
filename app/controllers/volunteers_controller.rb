@@ -37,6 +37,7 @@ class VolunteersController < ApplicationController
   end
 
   def edit
+    # @repair = Repair.all
     @volunteer = current_user.volunteer
   end
 
@@ -50,6 +51,12 @@ class VolunteersController < ApplicationController
     end
   end
 
+  def destroy
+    volunteer = Volunteer.find(params[:id])
+    volunteer.destroy
+    redirect_to volunteer_path(volunteer.id)
+  end
+  
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
@@ -69,7 +76,7 @@ class VolunteersController < ApplicationController
   def add_repairs
     @repair = Repair.all
     if current_user.nil?
-      redirect_to new_volunteer_path
+      redirect_to new_volunteers_path
     else
       @volunteer = current_user.volunteer
   end
@@ -78,7 +85,7 @@ class VolunteersController < ApplicationController
   def add_repair_to_volunteer
     # @repair = Repair.find(params[:id])
     volunteer_repair = VolunteerRepair.new
-    if current_user.nil?
+    if current_user.volunteer.nil?
       redirect_to new_volunteer_path
     else
       volunteer_repair.volunteer_id = current_user.volunteer.id
