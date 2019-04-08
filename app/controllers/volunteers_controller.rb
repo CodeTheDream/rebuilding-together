@@ -83,5 +83,4 @@ private
       :avail_fri_am, :avail_fri_pm, :avail_sat_am, :avail_sat_pm, :skill,
       :volunteer_notes)
     end
-
 end
