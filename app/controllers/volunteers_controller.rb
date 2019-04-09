@@ -4,24 +4,32 @@ class VolunteersController < ApplicationController
 
 before_action :authenticate_user!
 after_action  :verify_authorized
+before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
 
   def index
     # set permission that only the administrator can see the index
     # also set up function/action either here or in devise that when the user
     # first sign up for login credentials they're redirected to a creat your
     # profile page.
-    # @repair = Repair.all
     @volunteer = Volunteer.all
     authorize Volunteer
   end
 
   def new
-    @volunteer = current_user.build_volunteer
+    if current_user.volunteer.nil?
+      @volunteer = current_user.build_volunteer
+    else
+      redirect_to volunteer_path(current_user.volunteer)
+    end
     authorize @volunteer
   end
 
   def create
-    @volunteer = current_user.build_volunteer(volunteer_params)
+    if current_user.volunteer.nil?
+      @volunteer = current_user.build_volunteer(volunteer_params)
+    else
+      redirect_to volunteer_path(current_user.volunteer)
+    end
     authorize @volunteer
     if @volunteer.save
       flash[:success] = "Volunteer created."
@@ -32,23 +40,16 @@ after_action  :verify_authorized
   end
 
   def show
-    @volunteer = current_user.volunteer unless current_user.admin?
-    @volunteer = Volunteer.find(params[:id])
     authorize @volunteer
   end
 
   def edit
-    @volunteer = current_user.volunteer unless current_user.admin?
-    @volunteer = Volunteer.find(params[:id])
     authorize @volunteer
   end
 
   def update
-    @volunteer = current_user.volunteer unless current_user.admin?
-    @volunteer = Volunteer.find(params[:id])
     authorize @volunteer
-
-    if @volunteer.update_attributes(volunteer_params)
+    if @volunteer.update(volunteer_params)
       flash[:success] = "Volunteer updated."
       redirect_to volunteer_path(@volunteer)
     else
@@ -57,11 +58,10 @@ after_action  :verify_authorized
   end
 
   def destroy
-    @volunteer = Volunteer.find(params[:id])
     authorize @volunteer
     @volunteer.destroy
     flash[:success] = "Volunteer deleted."
-    redirect_to volunteers_path
+    redirect_to root_path
   end
 
   # def (action to view projects)
@@ -112,9 +112,18 @@ after_action  :verify_authorized
 
   private
 
-  def volunteer_params
-    params.require(:volunteer).permit(:picture, :first_name, :last_name, :email,
-                                      :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-                                      :availability, :skill, :volunteer_notes)
-  end
+    def volunteer_params
+      params.require(:volunteer).permit(:picture, :first_name, :last_name, :email,
+                                        :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
+                                        :availability, :skill, :volunteer_notes)
+    end
+
+    def set_volunteer
+      if current_user.admin?
+        @volunteer = Volunteer.find(params[:id])
+      else
+        @volunteer = current_user.volunteer
+      end
+    end
+
 end

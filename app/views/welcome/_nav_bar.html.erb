@@ -3,7 +3,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Volunteer", volunteers_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+        <% if current_user %>
+          <% if current_user.role == "admin" %>
+            <%= link_to "Volunteers", volunteers_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+          <% else %>
+            <% if current_user.volunteer.nil? %>
+              <%= link_to "Volunteer", new_volunteer_path(@volunteer), class: "nav-link" %> <span class="sr-only">(current)</span>
+            <% else %>
+              <%= link_to "Volunteer", current_user.volunteer, class: "nav-link" %> <span class="sr-only">(current)</span>
+            <% end %>
+          <% end %>
+        <% end %>
       </li>
       <li class="nav-item">
         <li><%= link_to "Home Owner", owners_path, class: "nav-link" %></li>
@@ -20,7 +30,7 @@
        </li>
        <% else %>
        <li>
-          <%= link_to "Logout",  destroy_user_session_path, :method => "delete", class: "nav-link"  %> <span class="sr-only">(current)</span
+         <%= link_to "Logout",  destroy_user_session_path, :method => "delete", class: "nav-link"  %><span class="user_email"><%= link_to current_user.email%> | <%= current_user.role %></span>
        </li>
        <% end %>
       </ul>

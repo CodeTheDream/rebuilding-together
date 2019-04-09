@@ -13,15 +13,15 @@ class VolunteerPolicy
   end
 
   def show?
-    @current_user.admin? || @current_user == @volunteer.user
+    @current_user.admin? || @volunteer == @current_user.volunteer
   end
 
   def edit?
-    @current_user.admin? || @current_user == @volunteer.user
+    @current_user.admin? || @volunteer == @current_user.volunteer
   end
 
-  def update?
-    @current_user.admin? || @current_user == @volunteer.user
+  def update? #important
+    @current_user.admin? || @volunteer == @current_user.volunteer
   end
 
   def new?   #new policy
@@ -29,12 +29,11 @@ class VolunteerPolicy
   end
 
   def create?  #create policy
-    @volunteer.user_id == @current_user.id
+    @volunteer == @current_user.volunteer
   end
 
   def destroy?
-    return false if @current_user == @volunteer
-    @current_user.admin?
+    @current_user.admin? || @volunteer == @current_user.volunteer
   end
 
 end
