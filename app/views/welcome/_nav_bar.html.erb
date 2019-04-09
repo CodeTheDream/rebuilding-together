@@ -1,4 +1,8 @@
+ <div>
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar_items">
+  <%= image_tag("https://static1.squarespace.com/static/5912015815d5db225b4ee4d7/t/5a074607085229359d528b03/1553525258598/?format=1500w", {:style => "width:7em;"}) %>
+  </div>
   <%= link_to "Rebuilding Together", root_path, class: "navbar-brand" %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -19,7 +23,7 @@
         <li><%= link_to "Home Owner", owners_path, class: "nav-link" %></li>
       </li>
       </div>
-    <div>
+    <div class="logout">
      <ul class="nav navbar-nav navbar-right">
       <% if current_user == nil %>
        <li>
