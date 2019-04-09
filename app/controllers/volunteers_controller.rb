@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class VolunteersController < ApplicationController
+  
   before_action :authenticate_user!
 
   def index
@@ -15,7 +16,7 @@ class VolunteersController < ApplicationController
   def new
     # @repair = Repair.all
     @volunteer = Volunteer.new
-    unless current_user.volunteer.nil?
+    if current_user.volunteer != nil
       redirect_to volunteer_path(current_user.volunteer.id)
     end
   end

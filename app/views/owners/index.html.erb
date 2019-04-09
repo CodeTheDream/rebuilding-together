@@ -1,20 +1,42 @@
-<div class="container">
-  <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-        <% if current_user.role == "admin" %>
-          <h1>The Owner List (<%= @owners.count %>)</h1>
-          <ul>
-           <% @owners.each do |owner| %>
-              <li><%= link_to owner.full_name, owner %> - <%= owner.short_address %></li>
-           <% end %>
-          </ul>
-        <% end %>
+<% if current_user.role == "admin" %>
+  <%= render 'shared/staff_banner' %>
+  <h1>The Owner List (<%= @owners.count %>)</h1>
+    <ul>
+      <% @owners.each do |owner| %>
+        <li><%= link_to owner.full_name, owner %> - <%= owner.short_address %></li>
+      <% end %>
+    </ul>
+<%= render 'shared/footer' %>
+<% end %>
 
-        <% if user_signed_in? && current_user.owner == nil%>
-          <p><%= link_to "Create Owner", new_owner_path%></p>
-          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-warning btn-sm" %>
-          <p><strong>Current user: </strong><%= current_user.email %> (Role: <%= current_user.role %>)</p>
-        <% end %>
+<% if user_signed_in? && current_user.owner == nil%>
+  <%= render 'banner' %>
+  <div class="show-body">
+    <div class="row">
+      <div class="col-4">
+        <p><strong>Current user: </strong><%= current_user.email %> (Role: <%= current_user.role %>)</p>
+        <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-warning btn-sm" %>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-7">
+        <img src="https://static1.squarespace.com/static/5912015815d5db225b4ee4d7/t/59121721e4fcb5b8a14640a9/1494357821788/tumblr_mjco89cUVY1rkz363o1_1280.jpg?format=1500w" width=100%>
       </div>
+      <div class="col-5">
+        <div class="card-body">
+          <h2 class="center">Support for Homeowners</h2> <br>
+          <p>Rebuilding Together of the Triangle seeks to make a sustainable impact on preserving and 
+          revitalizing homes and communities, assuring that low-income homeowners, from the elderly and disabled
+          to families with children, live in safe, healthy homes in Chatham, Durham, Orange and Wake counties in
+          North Carolina.</p>
+          <p>Does your home need critical repairs? We can help! </p>
+          <h6> To get started, create a new homeowner profile by clicking the link below.</h6><br>
+          <h6 class="center"> <%= link_to 'Create Homeowner Profile', new_owner_path %></h6>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+<br>
+<%= render 'shared/footer' %>
+<% end %>

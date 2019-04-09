@@ -1,9 +1,10 @@
 <% if @volunteer == nil %>
-  <%= render 'banner' %>
+<%= render 'banner' %>
+<div class="container-fluid">
   <div class="show-body">
     <div class="row">
       <div class="col-7">
-        <img src="https://www.rodgersbuilders.com/wp-content/uploads/Rebuilding_13.jpg" width=100%>
+        <img src="https://www.rodgersbuilders.com/wp-content/uploads/Rebuilding_13.jpg" width=650em>
       </div>
       <div class="col-5">
         <div class="card-body">
@@ -17,13 +18,14 @@
       </div>
     </div>
   </div>
-
+</div>
+  <br>
+  <%= render 'shared/footer' %>
 <% else %>
-  <div class='fixed-top'>
-    <%= render 'banner' %>
-    <%= render 'navbar' %>
-  </div>
+  <%= render 'banner' %>
+  <%= render 'navbar' %>
+<div class='body'>
     <%= render 'profile' %>
+</div>
 <% end %>
 <br>
-<%= render 'footer' %>

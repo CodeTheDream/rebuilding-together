@@ -1,13 +1,21 @@
-<div class="row banner">
-  <div class="col-4 logo">
-    <img src='http://rebuildingtogethertriangle.force.com//servlet/servlet.FileDownload?file=0150V00000Cw36U' height=100px>
+<div>
+<%= render 'shared/staff_banner' %>
+<%= render 'welcome/nav_bar' %>
+</div>
+<div class="row">
+  <div class="col-3">
+    <img src="http://casa-alameda.org/wp-content/uploads/2016/11/volunteer-icon-grey.png" height=40px>
+    <%= link_to 'Create Volunteer Profile', new_volunteer_path %>
   </div>
-  <div class="col title">
-    <h1>Staff Portal</h1>
+  <div class="col-3">
+    <img src='https://static.thenounproject.com/png/1663528-200.png' width=40px>
+    <%= link_to 'Create Homeowner Profile', new_owner_path %>
+  </div>
+  <div class="col-3">
+    <img src='http://golfcartrentalsorlando.com/wp-content/uploads/2015/01/repair-2.png' width=40px>
+    <%= link_to 'Create Repair', new_repair_path %>
   </div>
 </div>
-
-<!--Include nav bard for links to view volunteers, view homes, search or sort volunteers/homes-->
 
 <div class="index-body">
   <div>
@@ -15,7 +23,6 @@
     <h4 class="center">Welcome Rebuilding Together of the Triangle Staff!</h4>
     <h4 class="center">Below is a list of your volunteers.</h4>
   </div>
-
   <% @volunteer.each do |volunteer| %>
   <div class="card_padding">    
     <div class="card lg-12" style="max-width: 100%;">
@@ -31,22 +38,20 @@
           <h6><i><%= volunteer.city %>, <%= volunteer.state %></i></h6>
         </div>
         <div class="col-3">
-          <p class="card_title"><strong>Contact Info</strong></p>
+          <p class="green"><strong>Contact Info</strong></p>
           <p><strong>Email:</strong> <%= volunteer.email %></p>
           <p><strong>Phone:</strong> <%= volunteer.mobile_phone %></p>
           <p><strong>Location:</strong> <%= volunteer.city %>, <%= volunteer.state %></p>
         </div>
-  
         <div class="col-3">
-          <p class="card_title"><strong>Personal Info</strong></p>
+          <p class="green"><strong>Personal Info</strong></p>
           <p><strong>Gender:</strong> <%= volunteer.gender %></p>
           <p><strong>Birthdate:</strong> <%= volunteer.birthdate %></p>
           <p><strong>Employer:</strong> <%= volunteer.employer %></p>
           <p><strong>Position:</strong> <%= volunteer.position %></p>
         </div>
-      
         <div class="col-4">
-          <p class="card_title"><strong>Availability & Skills</strong></p>
+          <p class="green"><strong>Availability & Skills</strong></p>
           <p><strong>Availability:</strong> <%= volunteer.avail_sun_am %> <%= volunteer.avail_sun_pm %>
             <%= volunteer.avail_mon_am %> <%= volunteer.avail_mon_pm %> <%= volunteer.avail_tue_am %> 
             <%= volunteer.avail_tue_pm %> <%= volunteer.avail_wed_am %> <%= volunteer.avail_wed_pm %>
@@ -63,9 +68,4 @@
 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-dark" %>
 </div>
 <br>
-<div>
-<!--Will style into nav bar with next commit. -->
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-<%= link_to "Create Volunteer", new_volunteer_path %>
-<%= render 'footer' %>
-</div>
+<%= render 'shared/footer' %>

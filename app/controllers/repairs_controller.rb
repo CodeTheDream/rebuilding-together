@@ -19,9 +19,9 @@ class RepairsController < ApplicationController
       @repair.owner_id = current_user.owner.id
       @repair.save
       redirect_to repairs_path
+    end
   end
-end
-
+  
   def edit
     @repair = Repair.find(params[:id])
   end
