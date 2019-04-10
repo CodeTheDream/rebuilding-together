@@ -4,18 +4,23 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
        
-       <% unless current_user == nil %>
-             <% link_to root_path, class: "nav-link" %> 
-       <% if current_user.volunteer != nil %>
-            <%= link_to "Volunteer", volunteer_path(current_user.volunteer),  class: "nav-link" %> <span class="sr-only">(current)</span> %>
+    
+       <% if current_user != nil and current_user.volunteer != nil %>
+            <%= link_to "Volunteer", volunteer_path(current_user.volunteer),  class: "nav-link" %> <span class="sr-only">(current)</span> 
          <% else %>
-           <% link_to  new_volunteer_path, class: "nav-link" %> <span class="sr-only">(current)</span> %>
-
+           <%= link_to "Volunteer",  new_volunteer_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
+     <% end %>
+      <%# end %>
       </li>
-      <% end %>
-      <% end %>
+      
       <li class="nav-item">
-        <li><%= link_to "Home Owner", owners_path, class: "nav-link" %></li>
+       
+          <% if current_user != nil and current_user.owner != nil and current_user.owner.id != nil %>
+         <%= link_to "Owner", owner_path(current_user.owner), class: "nav-link" %> <span class="sr-only">(current)</span> 
+         <% else %>
+        <%= link_to "Owner",  new_owner_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
+
+        <% end %>
       </li>
       </div>
     <div>
