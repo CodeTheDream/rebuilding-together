@@ -20,7 +20,7 @@ class VolunteersController < ApplicationController
     end
   end
 
-  def show_profile
+  def show
     @volunteer = current_user.volunteer
   end
 
@@ -30,7 +30,7 @@ class VolunteersController < ApplicationController
     @volunteer.user_id = current_user.id
     if @volunteer.save
       flash[:success] = 'Volunteer created!'
-      redirect_to show_profile_volunteers_path(@volunteer)
+      redirect_to volunteer_path(@volunteer)
     else
       render 'new'
     end
@@ -56,7 +56,7 @@ class VolunteersController < ApplicationController
     volunteer.destroy
     redirect_to volunteer_path(volunteer.id)
   end
-  
+
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
