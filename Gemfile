@@ -5,10 +5,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.0'
 
-gem 'carrierwave', '~> 0.11.2'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap', '~> 4.3.1'
+gem 'carrierwave', '~> 0.11.2'
 gem 'devise'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'pundit'
 gem 'rubocop', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -73,4 +73,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-

@@ -56,7 +56,7 @@ class VolunteersController < ApplicationController
     volunteer.destroy
     redirect_to volunteer_path(volunteer.id)
   end
-  
+
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
