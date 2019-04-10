@@ -2,10 +2,12 @@
 
 class OwnersController < ApplicationController
   before_action :authenticate_user!
+  after_action  :verify_authorized
   before_action :set_owner, only: %i[show edit update destroy]
 
   def index
     @owners = Owner.order(created_at: :desc)
+    authorize Owner
   end
 
   def new
@@ -14,10 +16,16 @@ class OwnersController < ApplicationController
     else
       redirect_to owner_path(current_user.owner)
     end
+    authorize @owner
   end
 
   def create
-    @owner = current_user.build_owner(owner_params)
+    if current_user.owner.nil?
+      @owner = current_user.build_owner(owner_params)
+    else
+      redirect_to owner_path(current_user.owner)
+    end
+    authorize @owner
     if @owner.save
       flash[:success] = 'Owner created'
       redirect_to @owner
@@ -26,11 +34,16 @@ class OwnersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    authorize @owner
+  end
 
-  def edit; end
+  def edit
+    authorize @owner
+  end
 
   def update
+    authorize @owner
     if @owner.update_attributes(owner_params)
       flash[:success] = 'Owner updated'
       redirect_to @owner
@@ -40,9 +53,10 @@ class OwnersController < ApplicationController
   end
 
   def destroy
+    authorize @owner
     @owner.destroy
     flash[:success] = 'Owner deleted!'
-    redirect_to owners_url
+    redirect_to root_path
   end
 
   private
@@ -54,6 +68,10 @@ class OwnersController < ApplicationController
   end
 
   def set_owner
-    @owner = current_user.owner
+    if current_user.admin?
+      @owner = Owner.find(params[:id])
+    else
+      @owner = current_user.owner
+    end
   end
 end
