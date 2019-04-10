@@ -3,8 +3,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Volunteer", volunteers_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+       
+       <% unless current_user == nil %>
+             <% link_to root_path, class: "nav-link" %> 
+       <% if current_user.volunteer != nil %>
+            <%= link_to "Volunteer", volunteer_path(current_user.volunteer),  class: "nav-link" %> <span class="sr-only">(current)</span> %>
+         <% else %>
+           <% link_to  new_volunteer_path, class: "nav-link" %> <span class="sr-only">(current)</span> %>
+
       </li>
+      <% end %>
+      <% end %>
       <li class="nav-item">
         <li><%= link_to "Home Owner", owners_path, class: "nav-link" %></li>
       </li>
