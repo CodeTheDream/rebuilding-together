@@ -4,34 +4,23 @@
     <div class="form-group">
       <%= f.label :picture, "Volunteer Photo:" %>
         <%= f.file_field :picture %>
-        <% if @volunteer.picture? %> 
+        <% if @volunteer.picture? %>
           <%= image_tag @volunteer.picture.url, class: "pic-placeholder" %>
         <% else %>
         <% end %>
      </div>
-        
+
     <div class="form-group row">
       <div class="col-md-6">
         <%= f.label :first_name, "First Name:", class: "required" %>
-        <%= f.text_field :first_name, class: "form-control" %> 
+        <%= f.text_field :first_name, class: "form-control" %>
       </div>
       <div class="col-md-6">
         <%= f.label :last_name, "Last Name:", class: "required"%>
-        <%= f.text_field :last_name, class: "form-control" %> 
+        <%= f.text_field :last_name, class: "form-control" %>
       </div>
     </div>
-        
-    <div class="form-group row">
-      <div class="col-md-6">
-        <%= f.label :email, "Email:", class: "required"%>   
-        <%= f.text_field :email, class: "form-control" %>
-      </div>
-      <div class="col-md-6">
-        <%= f.label :mobile_phone, "Phone:", class: "required"%>
-        <%= f.telephone_field :mobile_phone, class: "form-control" %> 
-      </div>
-    </div>
-        
+
     <div class="form-group row">
       <div class="col-md-6">
         <%= f.label :city, "City:", class: "required" %>
@@ -42,6 +31,14 @@
         <%= f.text_field :state, class: "form-control" %>
       </div>
     </div>
+
+    <div class="form-group row">
+      <div class="col">
+        <%= f.label :mobile_phone, "Phone:", class: "required"%>
+        <%= f.telephone_field :mobile_phone, class: "form-control" %>
+      </div>
+    </div>
+
 <br>
   <h4>Personal Information</h4>
     <div class="form-group row">
@@ -54,7 +51,7 @@
         <%= f.select(:gender, options_for_select(['Female', 'Male', 'Other', 'Prefer Not to Answer'])) %>
       </div>
     </div>
-        
+
     <div class="form-group row">
       <div class="col-md-6">
         <%= f.label :employer, "Employer:", class: "required" %>
@@ -76,16 +73,16 @@
 
         <%= f.radio_button :availability, 'Monday' %>
         <%= f.label :availability, 'Monday' %> <br>
-                
+
         <%= f.radio_button :availability, 'Tuesday' %>
-        <%= f.label :availability, 'Tuesday' %> <br>    
-         
+        <%= f.label :availability, 'Tuesday' %> <br>
+
         <%= f.radio_button :availability, 'Wednesday' %>
         <%= f.label :availability, 'Wednesday' %> <br>
 
-        <%= f.radio_button :availability, 'Thursday' %>               
+        <%= f.radio_button :availability, 'Thursday' %>
         <%= f.label :availability, 'Thursday' %> <br>
-            
+
         <%= f.radio_button :availability, 'Friday' %>
         <%= f.label :availability, 'Friday' %> <br>
 
@@ -93,16 +90,16 @@
         <%= f.label :availability, 'Saturday' %>
       </div>
     </div>
-    
+
     <%= f.label :skill, "List your volunteer skills and interests.", class: "required" %>
     <%= f.text_field :skill, class: "form-control" %>
-    
+
     <%= f.label :volunteer_notes, "Notes regarding my skills and availability:"%>
     <%= f.text_area :volunteer_notes, cols: 100, rows: 3, class: "form-control" %>
-    
+
 <!-- Add optionfor volunteer to select from repairs, drop box -->
 <!--<%# select_tag 'repair_id', options_from_collection_for_select(@repair, :id, :type) %>-->
     <br>
     <%= f.submit "Save", class: "btn btn-dark"%>
-    
+
 <% end %>
