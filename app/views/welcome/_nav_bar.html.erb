@@ -1,30 +1,25 @@
+ <div>
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
  <%= image_tag("https://static1.squarespace.com/static/5912015815d5db225b4ee4d7/t/5a074607085229359d528b03/1553525258598/?format=1500w", {:style => "width:7em;"}) %>
   <%= link_to "Rebuilding Together", root_path, class: "navbar-brand" %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-       
-    
-       <% if current_user != nil and current_user.volunteer != nil %>
+      <% if current_user != nil and current_user.volunteer != nil %>
             <%= link_to "Volunteer", volunteer_path(current_user.volunteer),  class: "nav-link" %> <span class="sr-only">(current)</span> 
          <% else %>
            <%= link_to "Volunteer",  new_volunteer_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
      <% end %>
-      <%# end %>
       </li>
-      
       <li class="nav-item">
-       
           <% if current_user != nil and current_user.owner != nil and current_user.owner.id != nil %>
          <%= link_to "Owner", owner_path(current_user.owner), class: "nav-link" %> <span class="sr-only">(current)</span> 
          <% else %>
         <%= link_to "Owner",  new_owner_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
-
         <% end %>
       </li>
       </div>
-    <div>
+    <div class="logout">
      <ul class="nav navbar-nav navbar-right">
       <% if current_user == nil %>
        <li>
@@ -35,7 +30,7 @@
        </li>
        <% else %>
        <li>
-          <%= link_to "Logout",  destroy_user_session_path, :method => "delete", class: "nav-link"  %> <span class="sr-only">(current)</span
+        <%= link_to "Logout",  destroy_user_session_path, :method => "delete", class: "nav-link"  %> <span class="sr-only">(current)</span
        </li>
        <% end %>
       </ul>

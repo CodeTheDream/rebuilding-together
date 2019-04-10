@@ -30,7 +30,7 @@ class VolunteersController < ApplicationController
     @volunteer.user_id = current_user.id
     if @volunteer.save
       flash[:success] = 'Volunteer created!'
-      redirect_to volunteer_path(@volunteer)
+      redirect_to volunteers_path(@volunteer)
     else
       render 'new'
     end
