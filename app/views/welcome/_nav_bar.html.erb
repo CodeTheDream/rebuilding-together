@@ -6,17 +6,17 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
       <% if current_user != nil and current_user.volunteer != nil %>
-            <%= link_to "Volunteer", volunteer_path(current_user.volunteer),  class: "nav-link" %> <span class="sr-only">(current)</span> 
-         <% else %>
-           <%= link_to "Volunteer",  new_volunteer_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
-     <% end %>
+         <%= link_to "Volunteer", volunteer_path(current_user.volunteer),  class: "nav-link" %> <span class="sr-only">(current)</span> 
+      <% else %>
+         <%= link_to "Volunteer",  new_volunteer_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
+      <% end %>
       </li>
       <li class="nav-item">
-          <% if current_user != nil and current_user.owner != nil and current_user.owner.id != nil %>
-         <%= link_to "Owner", owner_path(current_user.owner), class: "nav-link" %> <span class="sr-only">(current)</span> 
-         <% else %>
-        <%= link_to "Owner",  new_owner_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
-        <% end %>
+        <% if current_user != nil and current_user.owner != nil and current_user.owner.id != nil %>
+          <%= link_to "Owner", owner_path(current_user.owner), class: "nav-link" %> <span class="sr-only">(current)</span> 
+        <% else %>
+          <%= link_to "Owner",  new_owner_path, class: "nav-link" %> <span class="sr-only">(current)</span> 
+       <% end %>
       </li>
       </div>
     <div class="logout">

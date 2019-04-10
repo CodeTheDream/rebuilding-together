@@ -7,10 +7,10 @@ ruby '2.4.0'
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave', '~> 0.11.2'
-gem 'devise'
+gem 'devise', '~> 4.6.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
-gem 'pundit'
-gem 'rubocop', require: false
+gem 'pundit', '~> 2.0.1'
+gem 'rubocop', '~> 0.67.2', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
