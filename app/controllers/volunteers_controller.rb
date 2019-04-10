@@ -49,7 +49,7 @@ before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
 
   def update
     authorize @volunteer
-    if @volunteer.update(volunteer_params)
+    if @volunteer.update_attributes(volunteer_params)
       flash[:success] = "Volunteer updated."
       redirect_to volunteer_path(@volunteer)
     else
