@@ -4,7 +4,13 @@
 class RepairsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @repairs = Repair.all
+    if current_user.admin?
+      @repairs = Repair.all
+    elsif current_user.owner.nil?
+      redirect_to new_owner_path
+    else
+      @repairs = Repair.where(owner_id: current_user.owner.id)
+    end
   end
 
   def new
@@ -21,7 +27,7 @@ class RepairsController < ApplicationController
       redirect_to repairs_path
     end
   end
-  
+
   def edit
     @repair = Repair.find(params[:id])
   end

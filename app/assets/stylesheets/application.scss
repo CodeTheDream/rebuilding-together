@@ -23,3 +23,26 @@
     color: black;
 }
 
+
+label.required:after {
+    content: " *";
+    color: red;
+}
+
+.navbar_items{
+  padding:5px;
+}
+
+.logout{
+  padding:5px;
+}
+
+.devise-body {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+
+
+
+

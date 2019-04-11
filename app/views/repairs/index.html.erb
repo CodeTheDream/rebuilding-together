@@ -1,9 +1,9 @@
 <%= render 'banner' %>
-<%= render 'welcome/nav_bar' %>
+<%= render 'welcome/sans_logo_nav_bar' %>
 <div class="repair-index-body">
   <div class="row">
     <div class="col center">
-      <h5>The following is our current list of repairs.</h5><br>
+      <h5>The following is a current list of repairs.</h5><br>
       <h5>To create a new repair option, please click here <strong>"<%= link_to "Create New Repair", new_repair_path(@repairs) %>"</strong> to add a repair to this list.</h5>
     </div>
   </div>
@@ -30,4 +30,4 @@
   <% end %>
 </div>
 <br>
-<%= render 'shared/footer' %>
+<%#<%= render 'shared/footer' %>

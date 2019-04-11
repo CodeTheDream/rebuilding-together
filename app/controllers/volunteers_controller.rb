@@ -57,7 +57,7 @@ class VolunteersController < ApplicationController
     volunteer.destroy
     redirect_to volunteer_path(volunteer.id)
   end
-  
+
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
@@ -80,7 +80,7 @@ class VolunteersController < ApplicationController
       redirect_to new_volunteers_path
     else
       @volunteer = current_user.volunteer
-  end
+    end
   end
 
   def add_repair_to_volunteer
