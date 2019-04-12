@@ -14,6 +14,7 @@ class CreateVolunteers < ActiveRecord::Migration[5.2]
       t.string :state
       t.string :employer
       t.string :position
+      t.string :availability
       t.string :skill
       t.text :volunteer_notes
       t.integer :user_id
