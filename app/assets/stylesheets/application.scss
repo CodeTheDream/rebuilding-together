@@ -11,7 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  */
-// @import "bootstrap-sprockets";
 
 @import "bootstrap";
 @import "*";
@@ -24,61 +23,10 @@
     color: black;
 }
 
-// * {
-//    font-size: 13px;
-//    font-family: Arial;
-// }
-#owner_year{
-  height: 32px;
-  width: 100%;
-  border: 1px solid #ced4da;
-}
-
-#owner_language{
-  height: 32px;
-  width: 100%;
-  border: 1px solid #ced4da;
-}
-
-#owner_em_contact_relationship{
-  height: 32px;
-  width: 100%;
-  border: 1px solid #ced4da;
-}
-
-#owner_howd_you_hear{
-  height: 32px;
-  width: 100%;
-  border: 1px solid #ced4da;
-}
-
-.container{
-  background-color: #e9ecef;
-}
 
 label.required:after {
     content: " *";
     color: red;
-}
-
-// code below is for the homepage css
-
-
-.splash-image{
-  text-align: center;
-}
-
-.card{
-  padding:10px;
-}
-
-.card-deck{
-  padding:20px;
-}
-
-.background{
-    background-color:rgb(242, 242, 242);
-
 }
 
 .navbar_items{
@@ -88,6 +36,12 @@ label.required:after {
 .logout{
   padding:5px;
 }
+
+.devise-body {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
 
 
 

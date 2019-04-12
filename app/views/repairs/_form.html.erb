@@ -1,7 +1,16 @@
 <%= form_for @repair do |f| %>
-    <div>
-   Repair Type: <%= f.text_field :repair_type, class:'form-control', placeholder:'What type of repair will you like done' %>
+ <div class="form-group row">
+    <div class="col-md-12">
+      <%= f.label :repair_type, "Repair Type" %>
+      <%= f.text_field :repair_type, class:'form-control', placeholder:'What type of repair will you like done?' %>
     </div>
-   Repair Notes: <%= f.text_area :repair_notes, class:'form-control',  placeholder:'Repair Notes' %><br/>
-                 <%= f.submit 'Submit' %>
+  </div>
+  <br>
+  <div class="form-group row">
+    <div class="col-md-12">
+      <%= f.label :repair_notes, "Repair Notes" %>
+      <%= f.text_area :repair_notes, class:'form-control',  placeholder:'Repair Notes' %><br/>
+    </div>
+  </div>
+<%= f.submit 'Submit', class: "btn btn-dark" %>
 <% end %>

@@ -1,56 +1,63 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-2">
-    <h1><%= @owner.full_name%></h1>
-    <p>
-    <strong>Address:</strong>
-    <%= @owner.full_address %>
-    </p>
-
-    <p>
-    <strong>Phone:</strong>
-    <%= @owner.phone %>
-    </p>
-
-    <!-- <p>
-    <strong>Email:</strong>
-    < @owner.email %>
-    </p> -->
-
-    <p>
-    <strong>Years at home:</strong>
-    <%= @owner.year %>
-    </p>
-
-    <p>
-    <strong>Emergency Contact:</strong>
-    <%= @owner.em_contact_name %>
-    </p>
-
-    <p>
-    <strong>Emergency Phone:</strong>
-    <%= @owner.em_contact_phone %>
-    </p>
-
-    <p>
-    <strong>Emergency Contact Relationship:</strong>
-    <%= @owner.em_contact_relationship %>
-    </p>
-
-    <p>
-    <strong>Language:</strong>
-    <%= @owner.language %>
-    </p>
-
-    <p>
-    <strong>How did you hear about?</strong>
-    <%= @owner.howd_you_hear %>
-    </p>
-
-
-    <%= link_to "Edit", edit_owner_path(@owner)%>
-    <%= link_to "Delete", @owner, method: :delete, data: { confirm: "Are you sure?" }%><br>
-
-    <%= link_to "Request a repair", repairs_path, class: "btn btn-info btn-sm"%>
-
-  </div>
-</div>
+<%= render 'banner' %>
+<%= render 'navbar' %>
+<div class="index-body">
+  <h3 class="center">User Profile: <%= @owner.full_name %> </h3>
+  <br>
+  <h4 class="green">Personal Information</h4>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md col-md-offset-2">
+          <p>
+          <strong>Name:</strong>
+          <%= @owner.full_name %>
+          </p>
+          <p>
+          <strong>Address:</strong>
+          <%= @owner.full_address %>
+          </p>
+          <p>
+          <strong>Phone:</strong>
+          <%= @owner.phone %>
+          </p>
+        <!-- <p>
+        <strong>Email:</strong>
+        < @owner.email %>
+        </p> -->
+          <p>
+          <strong>Years at home:</strong>
+          <%= @owner.year %>
+          </p>
+          <p>
+          <strong>Language:</strong>
+          <%= @owner.language %>
+          </p>
+          <p>
+          <strong>How did you hear about?</strong>
+          <%= @owner.howd_you_hear %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <br>
+  <h4 class="green">Emergency Contact Information</h4>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md col-md-offset-2">
+          <p>
+          <strong>Emergency Contact:</strong>
+          <%= @owner.em_contact_name %>
+          </p>
+          <p>
+          <strong>Emergency Phone:</strong>
+          <%= @owner.em_contact_phone %>
+          </p>
+          <p>
+          <strong>Emergency Contact Relationship:</strong>
+          <%= @owner.em_contact_relationship %>
+          </p>
+        </div>
+      </div>
+    </div>
+</div>   
+<br>
+<%#<%= render 'shared/footer' %>
