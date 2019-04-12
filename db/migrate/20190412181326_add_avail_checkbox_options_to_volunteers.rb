@@ -1,39 +1,18 @@
 class AddAvailCheckboxOptionsToVolunteers < ActiveRecord::Migration[5.2]
-  def up
-    change_table :volunteers do |t|
-      t.string :avail_sun_am
-      t.string :avail_sun_pm
-      t.string :avail_mon_am
-      t.string :avail_mon_pm
-      t.string :avail_tue_am
-      t.string :avail_tue_pm
-      t.string :avail_wed_am
-      t.string :avail_wed_pm
-      t.string :avail_thr_am
-      t.string :avail_thr_pm
-      t.string :avail_fri_am
-      t.string :avail_fri_pm
-      t.string :avail_sat_am
-      t.string :avail_sat_pm
-    end
-  end
-  
-  def down
-    change_table :volunteers do |t|
-      t.string :avail_sun_am
-      t.string :avail_sun_pm
-      t.string :avail_mon_am
-      t.string :avail_mon_pm
-      t.string :avail_tue_am
-      t.string :avail_tue_pm
-      t.string :avail_wed_am
-      t.string :avail_wed_pm
-      t.string :avail_thr_am
-      t.string :avail_thr_pm
-      t.string :avail_fri_am
-      t.string :avail_fri_pm
-      t.string :avail_sat_am
-      t.string :avail_sat_pm
-    end
+  def change
+    add_column :volunteers, :avail_sun_am, :string
+    add_column :volunteers, :avail_sun_pm, :string
+    add_column :volunteers, :avail_mon_am, :string
+    add_column :volunteers, :avail_mon_pm, :string
+    add_column :volunteers, :avail_tue_am, :string
+    add_column :volunteers, :avail_tue_pm, :string
+    add_column :volunteers, :avail_wed_am, :string
+    add_column :volunteers, :avail_wed_pm, :string
+    add_column :volunteers, :avail_thr_am, :string
+    add_column :volunteers, :avail_thr_pm, :string
+    add_column :volunteers, :avail_fri_am, :string
+    add_column :volunteers, :avail_fri_pm, :string
+    add_column :volunteers, :avail_sat_am, :string
+    add_column :volunteers, :avail_sat_pm, :string
   end
 end
