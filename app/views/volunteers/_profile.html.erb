@@ -13,7 +13,7 @@
 
       <div class="col-7">
         <p><strong>Name:</strong> <%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
-        <p><strong>Email:</strong> <%= @volunteer.email %></p>
+        <p><strong>Email:</strong> <%= @volunteer.user.email %></p>
         <p><strong>Phone:</strong> <%= @volunteer.mobile_phone %></p>
         <p><strong>Location:</strong> <%= @volunteer.city %>, <%= @volunteer.state %></p>
       </div>

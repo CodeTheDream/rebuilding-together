@@ -1,13 +1,13 @@
-<% if current_user.role == "admin" %>
+<% if current_user.admin? %>
   <%= render 'shared/staff_banner' %>
   <br>
-  <h2 class="center">Homeowner's Index</h2>
-  <p class="center"><i>Number of Homeowners (<%= @owners.count %>)</i></p>
+  <h2 class="center">List of Homeowners</h2>
     <ul>
       <% @owners.each do |owner| %>
         <li><%= link_to owner.full_name, owner %> - <%= owner.short_address %></li>
    <% end %>
     </ul>
+<%= link_to "Home", root_path, class: "btn btn-outline-info btn-rounded waves-effect"%>
 <%= render 'shared/footer' %>
 <% end %>
 
@@ -28,7 +28,7 @@
       <div class="col-5">
         <div class="card-body">
           <h2 class="center">Support for Homeowners</h2> <br>
-          <p>Rebuilding Together of the Triangle seeks to make a sustainable impact on preserving and 
+          <p>Rebuilding Together of the Triangle seeks to make a sustainable impact on preserving and
           revitalizing homes and communities, assuring that low-income homeowners, from the elderly and disabled
           to families with children, live in safe, healthy homes in Chatham, Durham, Orange and Wake counties in
           North Carolina.</p>
@@ -40,5 +40,4 @@
     </div>
   </div>
 <br>
-<%#<%= render 'shared/footer' %>
 <% end %>
