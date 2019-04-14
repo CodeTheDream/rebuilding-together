@@ -1,10 +1,33 @@
-| <%= link_to "New Repair", new_repair_path(@repairs) %> |
-<% @repairs.each do |repair| %>
-    <div>
-    <%= repair.repair_type %>
+<%= render 'banner' %>
+<%= render 'welcome/sans_logo_nav_bar' %>
+<div class="repair-index-body">
+  <div class="row">
+    <div class="col center">
+      <h5>The following is a current list of repairs.</h5><br>
+      <h5>To create a new repair option, please click here <strong>"<%= link_to "Create New Repair", new_repair_path(@repairs) %>"</strong> to add a repair to this list.</h5>
     </div>
-    <%= repair.repair_notes %><br/>
-    <%= repair.status %><br/>
-    <%= link_to "Edit", edit_repair_path(repair) %>
-    <%= link_to "Delete",repair_path(repair), method: :delete%>
-<% end %>
+  </div>
+  <br>
+  <% @repairs.each do |repair| %>
+  <div class="card_padding">    
+    <div class="card lg-12" style="max-width: 100%;">
+      <div class="row no-gutters">
+        <div class="col-1">
+          <img src='http://golfcartrentalsorlando.com/wp-content/uploads/2015/01/repair-2.png' width=75%>
+        </div>
+        <div class="col-11">
+          <h5><%= repair.repair_type %></h5>
+          <p><%= repair.repair_notes %></p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-1"></div>
+        <div class="col-1"><%= link_to "Edit Repair", edit_repair_path(repair), class: "btn btn-primary btn-sm" %></div>
+        <div class="col-2"><%= link_to "Delete Repair", repair_path(repair), method: :delete, class: "btn btn-danger btn-sm" %></div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<br>
+<%#<%= render 'shared/footer' %>

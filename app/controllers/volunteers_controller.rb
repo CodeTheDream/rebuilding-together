@@ -86,7 +86,7 @@ before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
       redirect_to new_volunteers_path
     else
       @volunteer = current_user.volunteer
-  end
+    end
   end
 
   def add_repair_to_volunteer
@@ -100,7 +100,7 @@ before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
       volunteer_repair.status = 'Pending'
       volunteer_repair.save
       redirect_to add_repairs_volunteers_path
-   end
+    end
   end
 
   def remove_repair
@@ -111,19 +111,22 @@ before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
   end
 
   private
-
-    def volunteer_params
-      params.require(:volunteer).permit(:picture, :first_name, :last_name, :email,
-                                        :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-                                        :availability, :skill, :volunteer_notes)
-    end
-
-    def set_volunteer
-      if current_user.admin?
-        @volunteer = Volunteer.find(params[:id])
-      else
-        @volunteer = current_user.volunteer
+      def volunteer_params
+        params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
+                                          :mobile_phone, :birthdate, :gender, :city,
+                                          :state, :employer, :position,:avail_sun_am,
+                                          :avail_sun_pm, :avail_mon_am, :avail_mon_pm,
+                                          :avail_tue_am, :avail_tue_pm, :avail_wed_am,
+                                          :avail_wed_pm, :avail_thr_am, :avail_thr_pm,
+                                          :avail_fri_am, :avail_fri_pm, :avail_sat_am,
+                                          :avail_sat_pm, :skill, :volunteer_notes)
       end
-    end
 
+      def set_volunteer
+        if current_user.admin?
+          @volunteer = Volunteer.find(params[:id])
+        else
+          @volunteer = current_user.volunteer
+        end
+      end
 end

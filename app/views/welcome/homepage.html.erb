@@ -1,4 +1,14 @@
-  <div class="background">
+<div class="banner">
+  <div class="row">
+    <div class="col-4 logo">
+      <img src='http://rebuildingtogethertriangle.force.com//servlet/servlet.FileDownload?file=0150V00000Cw36U' height=100px>
+    </div>
+  </div>
+</div> 
+<%= render 'welcome/sans_logo_nav_bar' %>
+<%#<%= render 'welcome/nav_bar' %>
+<br>
+<div class="background">
   <div class="splash-image">
     <%= image_tag("https://static1.squarespace.com/static/5912015815d5db225b4ee4d7/t/5a6a2eb453450adbf04e8059/1494359627952/tumblr_mn8b8sLRb61rkz363o1_1280.jpg?format=1000w", {:style => "width:60em;"},) %>
   </div>
@@ -28,3 +38,4 @@
      <%= link_to "Home Owner", owners_path %>
   </div>
 </div>
+<%#<%= render 'shared/footer' %>
