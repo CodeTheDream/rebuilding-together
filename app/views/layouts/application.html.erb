@@ -4,19 +4,13 @@
     <title>Rebuiling Together of the Triangle</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-     </head>
-  
+  </head>
   <body>
-   <!--<= render 'welcome/nav_bar' %>-->
-   <%= render 'welcome/nav_bar' %>
    <% flash.each do |message_type, message| %>
        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
    <% end %>
-    <%= yield %>
+   <%= yield %>
   </body>
-  
 </html>

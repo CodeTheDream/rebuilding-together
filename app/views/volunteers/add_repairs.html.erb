@@ -1,29 +1,62 @@
+<%= render 'banner' %>
+<%= render 'navbar' %>
+<div class='body'>
+<h3 class="green">Available Repair Jobs</h3>
 <% @repair.each do |repair| %>
-<% if VolunteerRepair.where('volunteer_id = ? AND repair_id = ?', @volunteer.id, repair.id).length == 0 %> 
-    Repair Type: <%= repair.repair_type %><br/>
-    Repair Notes: <%= repair.repair_notes %><br/>
-    <div>
-    <%= link_to 'Sign up for a repair', add_repair_to_volunteer_volunteer_path(repair.id), method: :post %>`
+  <% if VolunteerRepair.where('volunteer_id = ? AND repair_id = ?', @volunteer.id, repair.id).length == 0 %> 
+    <div class="card_padding">    
+      <div class="card lg-12" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-1">
+            <img src='http://golfcartrentalsorlando.com/wp-content/uploads/2015/01/repair-2.png' width=75%>
+          </div>
+          <div class="col-11">
+            <p><strong>Repair Type:</strong> <%= repair.repair_type %></p>
+            <p><strong>Repair Notes:</strong> <%= repair.repair_notes %></p>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-1"></div>
+          <div class="col-1">
+            <%= button_to 'Sign up for a repair', add_repair_to_volunteer_volunteer_path(repair.id), method: :post, class: "btn btn-primary btn-sm" %>
+          </div>
+        </div>
+      </div>
     </div>
-    <% end %>
+  <% end %>
 <% end %>
 <br/>
-<h2>
-<p>Everything Below I've sign up for</p>
-</h2>
-
+<h3 class="green">Repair Jobs I've Signed Up For</h3>
 <% @volunteer.volunteer_repairs.each do |volunteer_repair| %>
-     Repair Type: <%= volunteer_repair.repair.repair_type %><br/>
-    Repair Notes: <%= volunteer_repair.repair.repair_notes %><br/>
-    <%= volunteer_repair.status %>
-
-    <div>
-    <%= link_to 'Remove', remove_repair_volunteer_path(volunteer_repair.id), method: :delete %>`|
+  <div class="card_padding">    
+    <div class="card lg-12" style="max-width: 100%;">
+      <div class="row no-gutters">
+        <div class="col-1">
+          <img src='https://www.goshen.edu/wp-content/uploads/sites/7/2017/07/maintenance-icon-12.png' width=75%>
+        </div>
+        <div class="col-11">
+          <p><strong>Repair Type:</strong> <%= volunteer_repair.repair.repair_type %></p>
+          <p><strong>Repair Notes:</strong> <%= volunteer_repair.repair.repair_notes %></p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-1"></div>
+        <div class="col">
+          <p><strong>Status:</strong> <%= volunteer_repair.status %> </p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-1"></div>
+        <div class="col">
+          <%= button_to 'Remove', remove_repair_volunteer_path(volunteer_repair.id), method: :delete, class: "btn btn-danger btn-sm" %>
+        </div>
+      </div>
     </div>
+  </div>
 <% end %>
-
-<
-
+</div>
+<br>
+<%#<%= render 'shared/footer' %>
 
 
 

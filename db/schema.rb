@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_135416) do
+ActiveRecord::Schema.define(version: 2019_04_12_181326) do
 
   create_table "owners", force: :cascade do |t|
     t.integer "user_id"
@@ -82,6 +82,20 @@ ActiveRecord::Schema.define(version: 2019_04_10_135416) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avail_sun_am"
+    t.string "avail_sun_pm"
+    t.string "avail_mon_am"
+    t.string "avail_mon_pm"
+    t.string "avail_tue_am"
+    t.string "avail_tue_pm"
+    t.string "avail_wed_am"
+    t.string "avail_wed_pm"
+    t.string "avail_thr_am"
+    t.string "avail_thr_pm"
+    t.string "avail_fri_am"
+    t.string "avail_fri_pm"
+    t.string "avail_sat_am"
+    t.string "avail_sat_pm"
   end
 
 end

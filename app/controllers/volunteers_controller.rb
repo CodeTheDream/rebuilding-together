@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class VolunteersController < ApplicationController
+  
   before_action :authenticate_user!
 
   def index
@@ -15,12 +16,12 @@ class VolunteersController < ApplicationController
   def new
     # @repair = Repair.all
     @volunteer = Volunteer.new
-    unless current_user.volunteer.nil?
+    if current_user.volunteer != nil
       redirect_to volunteer_path(current_user.volunteer.id)
     end
   end
 
-  def show_profile
+  def show
     @volunteer = current_user.volunteer
   end
 
@@ -30,7 +31,7 @@ class VolunteersController < ApplicationController
     @volunteer.user_id = current_user.id
     if @volunteer.save
       flash[:success] = 'Volunteer created!'
-      redirect_to show_profile_volunteers_path(@volunteer)
+      redirect_to volunteer_path(@volunteer)
     else
       render 'new'
     end
@@ -56,7 +57,7 @@ class VolunteersController < ApplicationController
     volunteer.destroy
     redirect_to volunteer_path(volunteer.id)
   end
-  
+
   # def (action to view projects)
   #   # show projects available based on their skills?
   #   # show past projects they've completed?
@@ -79,7 +80,7 @@ class VolunteersController < ApplicationController
       redirect_to new_volunteers_path
     else
       @volunteer = current_user.volunteer
-  end
+    end
   end
 
   def add_repair_to_volunteer
@@ -93,7 +94,7 @@ class VolunteersController < ApplicationController
       volunteer_repair.status = 'Pending'
       volunteer_repair.save
       redirect_to add_repairs_volunteers_path
-   end
+    end
   end
 
   def remove_repair
@@ -102,12 +103,16 @@ class VolunteersController < ApplicationController
     @volunteer_repair.destroy
     redirect_to add_repairs_volunteers_path
   end
-
+  
   private
-
-  def volunteer_params
-    params.require(:volunteer).permit(:picture, :first_name, :last_name, :email,
-                                      :mobile_phone, :birthdate, :gender, :city, :state, :employer, :position,
-                                      :availability, :skill, :volunteer_notes)
-  end
+      def volunteer_params
+        params.require(:volunteer).permit(:picture,:first_name,:last_name,:email,
+                                          :mobile_phone, :birthdate, :gender, :city, 
+                                          :state, :employer, :position,:avail_sun_am,
+                                          :avail_sun_pm, :avail_mon_am, :avail_mon_pm,
+                                          :avail_tue_am, :avail_tue_pm, :avail_wed_am,
+                                          :avail_wed_pm, :avail_thr_am, :avail_thr_pm, 
+                                          :avail_fri_am, :avail_fri_pm, :avail_sat_am,
+                                          :avail_sat_pm, :skill, :volunteer_notes)
+      end
 end

@@ -5,12 +5,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.0'
 
-gem 'carrierwave', '~> 0.11.2'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap', '~> 4.3.1'
-gem 'devise'
-gem 'pundit'
-gem 'rubocop', require: false
+gem 'carrierwave', '~> 0.11.2'
+gem 'devise', '~> 4.6.2'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'pundit', '~> 2.0.1'
+gem 'rubocop', '~> 0.67.2', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
@@ -73,4 +73,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
