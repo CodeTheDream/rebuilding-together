@@ -1,14 +1,36 @@
 <% if current_user.role == "admin" %>
+  <div>
   <%= render 'shared/staff_banner' %>
+  <%= render 'shared/admin_navbar' %>
+  </div>
+  <!--Admin role may not allow creation of volunteer and homeowner profiles or repairs,-->
+  <div class="row icons">
+    <div class="col-4">
+      <img src="http://casa-alameda.org/wp-content/uploads/2016/11/volunteer-icon-grey.png" height=40px>
+      <%= link_to 'Create Volunteer Profile', new_volunteer_path %>
+    </div>
+    <div class="col-4">
+      <img src='https://static.thenounproject.com/png/1663528-200.png' width=40px>
+      <%= link_to 'Create Homeowner Profile', new_owner_path %>
+    </div>
+    <div class="col-4">
+      <img src='http://golfcartrentalsorlando.com/wp-content/uploads/2015/01/repair-2.png' width=40px>
+      <%= link_to 'Create Repair', new_repair_path %>
+    </div>
+  </div> 
   <br>
   <h2 class="center">Homeowner's Index</h2>
   <p class="center"><i>Number of Homeowners (<%= @owners.count %>)</i></p>
-    <ul>
-      <% @owners.each do |owner| %>
-        <li><%= link_to owner.full_name, owner %> - <%= owner.short_address %></li>
-   <% end %>
-    </ul>
-<%= render 'shared/footer' %>
+  <% @owners.each do |owner| %>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col">
+        <h4><%= link_to owner.full_name, owner %></h4> 
+        <i>,<%= owner.short_address %></i>
+      </div>
+    </div>
+  <% end %>
+<%#<%= render 'shared/footer' %>
 <% end %>
 
 <% if user_signed_in? && current_user.owner == nil%>

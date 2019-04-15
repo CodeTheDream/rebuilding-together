@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2019_04_12_181326) do
     t.string "state"
     t.string "employer"
     t.string "position"
-    t.string "availability"
     t.string "skill"
     t.text "volunteer_notes"
     t.integer "user_id"
