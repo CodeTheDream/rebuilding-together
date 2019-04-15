@@ -24,7 +24,7 @@
     <h4 class="center">Below is a list of your volunteers.</h4>
   </div>
   <% @volunteer.each do |volunteer| %>
-  <div class="card_padding">    
+  <div class="card_padding">
     <div class="card lg-12" style="max-width: 100%;">
       <div class="row no-gutters">
         <div class="col-2">
@@ -34,7 +34,7 @@
             <%= image_tag "http://turnersrepair.com/wp-content/uploads/2018/06/profile-clipart-generic-user-7-1.png", class:"pic-placeholder" %>
           <% end %>
           <br><br>
-          <h5><%= volunteer.first_name %> <%= volunteer.last_name %></h5>
+          <h5><%= link_to volunteer.full_name, volunteer  %></h5>
           <h6><i><%= volunteer.city %>, <%= volunteer.state %></i></h6>
         </div>
         <div class="col-3">
@@ -53,9 +53,9 @@
         <div class="col-4">
           <p class="green"><strong>Availability & Skills</strong></p>
           <p><strong>Availability:</strong> <%= volunteer.avail_sun_am %> <%= volunteer.avail_sun_pm %>
-            <%= volunteer.avail_mon_am %> <%= volunteer.avail_mon_pm %> <%= volunteer.avail_tue_am %> 
+            <%= volunteer.avail_mon_am %> <%= volunteer.avail_mon_pm %> <%= volunteer.avail_tue_am %>
             <%= volunteer.avail_tue_pm %> <%= volunteer.avail_wed_am %> <%= volunteer.avail_wed_pm %>
-            <%= volunteer.avail_thr_am %> <%= volunteer.avail_thr_pm %> <%= volunteer.avail_fri_am %> 
+            <%= volunteer.avail_thr_am %> <%= volunteer.avail_thr_pm %> <%= volunteer.avail_fri_am %>
             <%= volunteer.avail_fri_pm %> <%= volunteer.avail_sat_am %> <%= volunteer.avail_sat_pm %></p>
           <p><strong>Volunteer's Skills:</strong> <%= volunteer.skill %></p>
           <p><strong>Notes regarding volunteer's availability and skills:</strong> <%= volunteer.volunteer_notes %></p>
@@ -67,4 +67,9 @@
 <br>
 </div>
 <br>
-<%#<%= render 'shared/footer' %>
+<div>
+<!--Will style into nav bar with next commit. -->
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |
+<%= link_to "Create Volunteer", new_volunteer_path %>
+<%= render 'footer' %>
+</div>

@@ -8,16 +8,16 @@
           <%= image_tag "http://turnersrepair.com/wp-content/uploads/2018/06/profile-clipart-generic-user-7-1.png", class:"pic-placeholder" %>
         <% end %>
       </div>
-      
+
       <div class="col-1"></div>
-      
+
       <div class="col-7">
         <p><strong>Name:</strong> <%= @volunteer.first_name %> <%= @volunteer.last_name %></p>
-        <p><strong>Email:</strong> <%= @volunteer.email %></p>
+        <p><strong>Email:</strong> <%= @volunteer.user.email %></p>
         <p><strong>Phone:</strong> <%= @volunteer.mobile_phone %></p>
         <p><strong>Location:</strong> <%= @volunteer.city %>, <%= @volunteer.state %></p>
       </div>
-    
+
     </div>
   </div>
 <h4 class="green">Personal Information</h4>
@@ -36,9 +36,9 @@
     <div class="row no-gutters">
       <div class="col-12">
         <p><strong>Availability:</strong> <%= @volunteer.avail_sun_am %> <%= @volunteer.avail_sun_pm %>
-        <%= @volunteer.avail_mon_am %> <%= @volunteer.avail_mon_pm %> <%= @volunteer.avail_tue_am %> 
+        <%= @volunteer.avail_mon_am %> <%= @volunteer.avail_mon_pm %> <%= @volunteer.avail_tue_am %>
         <%= @volunteer.avail_tue_pm %> <%= @volunteer.avail_wed_am %> <%= @volunteer.avail_wed_pm %>
-        <%= @volunteer.avail_thr_am %> <%= @volunteer.avail_thr_pm %> <%= @volunteer.avail_fri_am %> 
+        <%= @volunteer.avail_thr_am %> <%= @volunteer.avail_thr_pm %> <%= @volunteer.avail_fri_am %>
         <%= @volunteer.avail_fri_pm %> <%= @volunteer.avail_sat_am %> <%= @volunteer.avail_sat_pm %></p>
         <p><strong>My Skills:</strong> <%= @volunteer.skill %></p>
         <p><strong>Notes regarding my skills and availability:</strong> <%= @volunteer.volunteer_notes %></p>
