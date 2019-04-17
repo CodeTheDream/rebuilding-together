@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_04_12_181326) do
 
-  create_table "owner_repairs", force: :cascade do |t|
-    t.integer "owner_id"
-    t.integer "repair_id"
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "owners", force: :cascade do |t|
     t.integer "user_id"
     t.string "first_name"
