@@ -2,7 +2,9 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <%= link_to "Home", root_path, class: "nav-item nav-link" %>
-      <%= link_to "Back to Owners", owners_path, class: "nav-item nav-link"%>
+      <% if current_user.admin? %>
+        <%= link_to "Owners", owners_path(@owners), class: "nav-item nav-link"%>
+      <% end %>
       <%= link_to "My Profile", owner_path(current_user.owner), class: "nav-item nav-link" %>
       <%= link_to "Request a repair", repairs_path, class: "nav-item nav-link" %>
       <%= link_to 'Edit Profile', edit_owner_path(@owner), class: "nav-item nav-link" %>

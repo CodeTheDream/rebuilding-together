@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   resources :volunteers do
     member do
-      post 'add_repair_to_volunteer'
+      post 'add_repair'
       delete 'remove_repair'
     end
     collection do
-      get 'add_repairs'
+      get 'added_repairs'
     end
   end
 end

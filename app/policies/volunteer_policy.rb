@@ -25,7 +25,7 @@ class VolunteerPolicy
   end
 
   def new?   #new policy
-    @volunteer.user_id = @current_user.id
+    @volunteer = @current_user.volunteer
   end
 
   def create?  #create policy
@@ -33,6 +33,10 @@ class VolunteerPolicy
   end
 
   def destroy?
+    @current_user.admin? || @volunteer == @current_user.volunteer
+  end
+
+  def added_repairs?
     @current_user.admin? || @volunteer == @current_user.volunteer
   end
 

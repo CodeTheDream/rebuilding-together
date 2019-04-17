@@ -14,7 +14,8 @@ class OwnersController < ApplicationController
     if current_user.owner.nil?
       @owner = current_user.build_owner
     else
-      redirect_to owner_path(current_user.owner)
+      @owner = current_user.owner
+      redirect_to owner_path(@owner)
     end
     authorize @owner
   end

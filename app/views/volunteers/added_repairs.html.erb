@@ -2,9 +2,9 @@
 <%= render 'navbar' %>
 <div class='body'>
 <h3 class="green">Available Repair Jobs</h3>
-<% @repair.each do |repair| %>
-  <% if VolunteerRepair.where('volunteer_id = ? AND repair_id = ?', @volunteer.id, repair.id).length == 0 %> 
-    <div class="card_padding">    
+<% @repairs.each do |repair| %>
+  <% if VolunteerRepair.where('volunteer_id = ? AND repair_id = ?', @volunteer.id, repair.id).length == 0 %>
+    <div class="card_padding">
       <div class="card lg-12" style="max-width: 100%;">
         <div class="row no-gutters">
           <div class="col-1">
@@ -18,7 +18,7 @@
         <div class="row no-gutters">
           <div class="col-1"></div>
           <div class="col-1">
-            <%= button_to 'Sign up for a repair', add_repair_to_volunteer_volunteer_path(repair.id), method: :post, class: "btn btn-primary btn-sm" %>
+            <%= button_to 'Sign up for a repair', add_repair_volunteer_path(repair.id), method: :post, class: "btn btn-primary btn-sm" %>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
 <br/>
 <h3 class="green">Repair Jobs I've Signed Up For</h3>
 <% @volunteer.volunteer_repairs.each do |volunteer_repair| %>
-  <div class="card_padding">    
+  <div class="card_padding">
     <div class="card lg-12" style="max-width: 100%;">
       <div class="row no-gutters">
         <div class="col-1">
@@ -57,10 +57,3 @@
 </div>
 <br>
 <%#<%= render 'shared/footer' %>
-
-
-
-
-
-
-

@@ -19,7 +19,8 @@ before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
     if current_user.volunteer.nil?
       @volunteer = current_user.build_volunteer
     else
-      redirect_to volunteer_path(current_user.volunteer)
+      @volunteer = current_user.volunteer
+      redirect_to volunteer_path(@volunteer)
     end
     authorize @volunteer
   end
@@ -80,34 +81,43 @@ before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
     # no longer available?
   end
 
-  def add_repairs
-    @repair = Repair.all
+  def added_repairs
+    @repairs = Repair.all
     if current_user.nil?
-      redirect_to new_volunteers_path
+      redirect_to new_volunteer_path
     else
       @volunteer = current_user.volunteer
     end
+    authorize @volunteer
   end
 
-  def add_repair_to_volunteer
-    # @repair = Repair.find(params[:id])
-    volunteer_repair = VolunteerRepair.new
+  def add_repair
+    @volunteer_repair = VolunteerRepair.new
     if current_user.volunteer.nil?
       redirect_to new_volunteer_path
     else
-      volunteer_repair.volunteer_id = current_user.volunteer.id
-      volunteer_repair.repair_id = params[:id]
-      volunteer_repair.status = 'Pending'
-      volunteer_repair.save
-      redirect_to add_repairs_volunteers_path
+      @volunteer_repair.volunteer_id = current_user.volunteer.id
+      @volunteer_repair.repair_id = params[:id]
+      @volunteer_repair.status = 'Pending'
+      skip_authorization
+    end
+
+    if @volunteer_repair.save
+      flash[:success] = "Repair added."
+      redirect_to added_repairs_volunteers_path
+    else
+      flash[:success] = "Repair not added."
     end
   end
 
   def remove_repair
     @volunteer_repair = VolunteerRepair.find(params[:id])
     @volunteer_repair.volunteer_id = current_user.volunteer.id
+    skip_authorization
+
     @volunteer_repair.destroy
-    redirect_to add_repairs_volunteers_path
+    flash[:success] = "Repair removed."
+    redirect_to added_repairs_volunteers_path
   end
 
   private
