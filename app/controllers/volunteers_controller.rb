@@ -74,6 +74,7 @@ class VolunteersController < ApplicationController
     # no longer available?
   end
 
+# this code loads all the repairs the current user adds
   def add_repairs
     @repair = Repair.all
     if current_user.nil?
@@ -82,7 +83,8 @@ class VolunteersController < ApplicationController
       @volunteer = current_user.volunteer
     end
   end
-
+  
+# this code adds the repairs the repairs the volunteer adds
   def add_repair_to_volunteer
     # @repair = Repair.find(params[:id])
     volunteer_repair = VolunteerRepair.new
