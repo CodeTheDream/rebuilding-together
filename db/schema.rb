@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 2019_04_17_015013) do
     t.string "picture"
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
     t.string "mobile_phone"
     t.date "birthdate"
     t.string "gender"

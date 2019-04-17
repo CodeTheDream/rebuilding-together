@@ -1,5 +1,4 @@
-<% if current_user.role == "admin" %>
-  <div>
+<% if current_user.admin? %>
   <%= render 'shared/staff_banner' %>
   <%= render 'shared/admin_navbar' %>
   </div>
@@ -31,16 +30,21 @@
     </div>
   <% end %>
 <%#<%= render 'shared/footer' %>
+  <h2 class="center">List of Homeowners</h2>
+
 <% end %>
 
 <% if user_signed_in? && current_user.owner == nil%>
   <%= render 'banner' %>
   <div class="show-body">
+    <p><strong>Current user: </strong><%= current_user.email %> (Role: <%= current_user.role %>)</p>
     <div class="row">
-      <div class="col-4">
-        <p><strong>Current user: </strong><%= current_user.email %> (Role: <%= current_user.role %>)</p>
-        <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-warning btn-sm" %>
-        </div>
+      <div class="col-1">
+        <%= link_to "Home", root_path, class: "btn btn-outline-info btn-rounded waves-effect"%>
+      </div>
+      <div class="col-1">
+        <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-warning btn-rounded" %>
+      </div>
     </div>
     <br>
     <div class="row">
@@ -50,7 +54,7 @@
       <div class="col-5">
         <div class="card-body">
           <h2 class="center">Support for Homeowners</h2> <br>
-          <p>Rebuilding Together of the Triangle seeks to make a sustainable impact on preserving and 
+          <p>Rebuilding Together of the Triangle seeks to make a sustainable impact on preserving and
           revitalizing homes and communities, assuring that low-income homeowners, from the elderly and disabled
           to families with children, live in safe, healthy homes in Chatham, Durham, Orange and Wake counties in
           North Carolina.</p>
@@ -62,5 +66,4 @@
     </div>
   </div>
 <br>
-<%#<%= render 'shared/footer' %>
-<% end %>
+<%#<% end %>

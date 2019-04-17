@@ -16,4 +16,8 @@ class Volunteer < ApplicationRecord
       errors.add(:birthdate, "can't be now or in future")
     end
   end
+
+  def full_name
+    [first_name, last_name].compact.join(' ')
+  end
 end
