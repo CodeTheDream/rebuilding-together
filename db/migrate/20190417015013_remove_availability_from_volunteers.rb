@@ -1,9 +1,5 @@
 class RemoveAvailabilityFromVolunteers < ActiveRecord::Migration[5.2]
-  def down
-    remove_column :volunteers, :availability, :string if availability_exists?
-  end
-  
-  def up
+  def change
     remove_column :volunteers, :availability, :string if availability_exists?
   end
   
