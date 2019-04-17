@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "Repairs", type: :feature do
 include Warden::Test::Helpers
+# this feature allows you to create a login 
     def setup
      @user = FactoryBot.create(:user)
      login_as(@user, :scope => :user)
     end
+# allows you to run your test
   it "should create repair", js: true do
     setup
     owner = FactoryBot.create(:owner, user_id: @user.id)
