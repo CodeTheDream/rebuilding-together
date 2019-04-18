@@ -14,7 +14,7 @@ include Warden::Test::Helpers
     visit '/repairs'
     save_screenshot('test1.png')
     click_on 'Create New Repair'
-    save_screenshot("test2.png")
+    save_screenshot("test3.png")
     expect(page).to have_content("Repair Center")
     fill_in "Repair Type", with: "Plumbing" 
     fill_in "Repair Notes", with: "Water coming down"
