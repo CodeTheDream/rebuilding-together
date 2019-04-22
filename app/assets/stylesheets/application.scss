@@ -29,6 +29,27 @@ label.required:after {
     color: red;
 }
 
+// code below is for the homepage css
+
+
+.splash-image{
+  text-align: center;
+}
+
+.card{
+  padding:10px;
+}
+
+.card-deck{
+  padding:20px;
+}
+
+.background{
+    background-color:rgb(242, 242, 242);
+
+}
+
+
 .navbar_items{
   padding:5px;
 }
@@ -44,5 +65,6 @@ label.required:after {
 
 
 
-
-
+.user_email{
+  font-size: 10px;
+}
